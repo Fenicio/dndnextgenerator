@@ -1,0 +1,1 @@
+Types = new Meteor.Collection('types');
