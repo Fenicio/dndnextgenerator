@@ -16,16 +16,15 @@ var generateRandomMonster = function() {
     var subtypes = [];
     var monster = {};
     if(Math.rand(1,4)==4) {
-        subtypes.push(MonsterSubTypes.randomPop());
+        subtypes.push(Types.find({type: "sub"}).randomPop());
     }
-    subtypes.push(MonsterSubTypes.randomPop());
-    monster.type = MonsterTypes.random();
-    monster.size = MonsterSizeSubtypes.random();
+    subtypes.push(Types.find({type: "sub"}).randomPop());
+    monster.type = Types.find({type: "main"}).random();
+    monster.size = Types.find({type: "size"}).random();
     monster.actions = [{
-      name: "Default Attack",
-      type: "P",
+      name: "Standard Attack",
       action: "Standard Action",
-      text: "Does X damage"
+      text: "Does {{avg-damage}} damage"
     }];
 
     monster.name=generateMonsterName(subtypes);
