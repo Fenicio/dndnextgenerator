@@ -3,11 +3,12 @@ if (Meteor.isClient) {
     return "Welcome to example.";
   };
 
+  Template.hello.currentMonster = function() {
+    return JSON.stringify(Session.get("currentMonster"));
+  }
   Template.hello.events({
     'click input': function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log(generateRandomMonster());
+      Session.set("currentMonster", generateRandomMonster());
     }
   });
 }
