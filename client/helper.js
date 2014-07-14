@@ -8,19 +8,29 @@ Array.prototype.randomPop = function() {
     return this.splice(Math.rand(0, this.length-1),1)[0];
 };
 
-var generateMonsterName = function(subtypes) {
+generateMonsterName = function(subtypes) {
     return subtypes.random().adjetives.random()+" "+subtypes.random().prefix.random()+subtypes.random().suffix.random();
 };
+/**
+ * Returns an array of N items from the collection, queryied with options
+*/
+getRandomFromCollection = function(c, options, n) { //Not optimal, but kinda works
+    var temp = c.find(options).fetch();
+    var result = [];
+    for(var i =0;i<n;i++) {
+        result.push(temp.randomPop());   
+    }
+    return result;
+};
 
-var generateRandomMonster = function() {
+generateRandomMonster = function() {
     var subtypes = [];
     var monster = {};
-    if(Math.rand(1,4)==4) {
-        subtypes.push(Types.find({type: "sub"}).randomPop());
-    }
-    subtypes.push(Types.find({type: "sub"}).randomPop());
-    monster.type = Types.find({type: "main"}).random();
-    monster.size = Types.find({type: "size"}).random();
+    subtypes = getRandomFromCollection(Types, {type: "sub"}, [1,1,1,2,2,3].random());
+    monster.type = getRandomFromCollection(Types,{type: "main"},1).pop();
+    subtypes.push(monster.type);
+    monster.size = getRandomFromCollection(Types,{type: "size"},1).pop();
+    subtypes.push(monster.size);
     monster.actions = [{
       name: "Standard Attack",
       action: "Standard Action",
