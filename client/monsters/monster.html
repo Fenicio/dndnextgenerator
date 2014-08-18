@@ -1,0 +1,33 @@
+<!--
+{"type":{"_id":"FjndRDwwLNd4jbCwd","name":"Humanoid","type":"main","adjetives":[""],
+"prefix":["hu","el","or","assi","lat"],"suffix":["man","lf","rc","maar"],"stats":{},"skills":{"Diplomacy":4},"actions":[],"traits":[]},
+"size":{"_id":"BPhuv3RcZ6HqSti4R","name":"Small","type":"size","adjetives":["Small","Little"],"prefix":["half","kend"],"suffix":["ling","der"],"stats":{"STR":-1,"DEX":2,"CON":-1},"skills":{"Stealth":4},"actions":[],"traits":[]},
+"actions":[{"name":"Standard Attack","action":"Standard Action","text":"Does {{avg-damage}} damage"},{"name":"Surprise attack","action":"Standard","text":"If this creatures surprises another creature and hits it deals {{min-damage}} extra damage"},{"name":"Grab","action":"Standard Action","text":"Allows a grab attack at 15 ft"}],"traits":[{"name":"Darkvision","text":"This creature can see in complete dark up to 60ft"},{"name":"Great climber","text":"This creature can move through vertical walls at half its movement speed"}],"stats":{"STR":7,"DEX":16,"CON":11,"INT":10,"WIS":10,"CHA":10},
+"skills":{"Stealth":8,"Athletics":4,"Diplomacy":4},"name":" kendpus"}
+-->
+<template name="monster">
+    <div class="monster-header">
+        {{name}}
+        <small>
+        {{#each subtypes}} 
+            {{> typeJewel}} 
+        {{/each}}
+        </small>
+    </div>
+    <div class="monster-body">
+        <h3>Traits</h3>
+        {{#each traits}}
+            {{> trait}}
+        {{/each}}
+        <h3>Attacks</h3>
+        {{#each actions}}
+            {{> action}}
+        {{/each}}
+        <h3>Skills</h3>
+        {{#each skills}}
+            {{> skill}}
+        {{/each}}
+        <h3>Stats</h3>
+        Str: {{stat.str}}
+    </div>
+</template>

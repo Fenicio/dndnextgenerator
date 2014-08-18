@@ -13,6 +13,7 @@ Types.insert({
     skills: {
         "Stealth": 4
     },
+    hitDice: 6,
     actions: [],
     traits: []
 });

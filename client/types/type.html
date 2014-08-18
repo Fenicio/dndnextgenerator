@@ -1,0 +1,19 @@
+<template name="type">
+    {{name}}
+    <h3>Stats</h3>
+    {{#each stats}}
+        {{> stat}}
+    {{/each}}
+    <h3>Skills</h3>
+    {{#each skills}}
+        {{> skill}}
+    {{/each}}
+    <h3>Actions</h3>
+    {{#each actions}}
+        {{> action}}
+    {{/each}}
+    <h3>Traits</h3>
+    {{#each traits}}
+        {{> trait}}
+    {{/each}}
+</template>

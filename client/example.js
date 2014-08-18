@@ -4,7 +4,8 @@ if (Meteor.isClient) {
   };
 
   Template.hello.currentMonster = function() {
-    return JSON.stringify(Session.get("currentMonster"));
+    //return JSON.stringify(Session.get("currentMonster"));
+    return Session.get("currentMonster");
   }
   Template.hello.events({
     'click input': function () {
