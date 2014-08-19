@@ -1,5 +1,27 @@
-if(Types.find().count()===0) {
+if(Types && Types.find().count()===0) {
 //Insert size types
+
+//=======================
+Types.insert({
+    name: "Tiny",
+    type: "size",
+    adjetives: ["Mite", "Minuscule"],
+    prefix: ["micro", "zepto"],
+    suffix: ["icro", "mite"],
+    stats: {
+        "STR": -6,
+        "DEX": 4,
+        "CON": -6
+    },
+    skills: {
+        "Stealth": 6
+    },
+    hitDice: 4,
+    actions: [],
+    traits: []
+});
+
+
 Types.insert({
     name: "Small",
     type: "size",
@@ -7,9 +29,9 @@ Types.insert({
     prefix: ["half", "kend"],
     suffix: ["ling", "der"],
     stats: {
-        "STR": -1,
+        "STR": -2,
         "DEX": 2,
-        "CON": -1
+        "CON": -2
     },
     skills: {
         "Stealth": 4
@@ -19,10 +41,85 @@ Types.insert({
     traits: []
 });
 
+Types.insert({
+    name: "Medium",
+    type: "size",
+    adjetives: [""],
+    prefix: [""],
+    suffix: [""],
+    stats: {
+    },
+    skills: {
+    },
+    hitDice: 8,
+    actions: [],
+    traits: []
+});
+
+Types.insert({
+    name: "Large",
+    type: "size",
+    adjetives: ["Hulking"],
+    prefix: ["ogr", "trol", "gi"],
+    suffix: ["gre", "oll", "ant"],
+    stats: {
+      "STR": +4,
+      "DEX": -4,
+      "CON": +4
+    },
+    skills: {
+      "Stealth": -5
+    },
+    hitDice: 10,
+    actions: [],
+    traits: []
+});
+
+Types.insert({
+    name: "Huge",
+    type: "size",
+    adjetives: ["Inmense", "Ancient"],
+    prefix: ["tit", "coloss"],
+    suffix: ["tan", "tanic", "ssal"],
+    stats: {
+      "STR": +6,
+      "DEX": -6,
+      "CON": +6
+    },
+    skills: {
+      "Stealth": -10
+    },
+    hitDice: 12,
+    actions: [],
+    traits: []
+});
+
+Types.insert({
+    name: "Gargantuan",
+    type: "size",
+    adjetives: ["Monstrous"],
+    prefix: ["tarr"],
+    suffix: ["asque"],
+    stats: {
+      "STR": +8,
+      "DEX": -8,
+      "CON": +8
+    },
+    skills: {
+      "Stealth": -20
+    },
+    hitDice: 20,
+    actions: [],
+    traits: []
+});
+
 //insert default types
+//================================================
+
 Types.insert({
     name: "Humanoid",
     type: "main",
+    canEquip: 1,
     adjetives: [""],
     prefix: ["hu", "el", "or", "assi", "lat"],
     suffix: ["man", "lf", "rc", "maar"],
@@ -34,6 +131,72 @@ Types.insert({
     traits: []
 });
 
+Types.insert({
+    name: "Quadruped Animal",
+    type: "main",
+    adjetives: [""],
+    prefix: ["pan", "wo", "ly", "assi", "lat"],
+    suffix: ["lf", "rg", "ther", "ynx"],
+    stats: {},
+    skills: {
+        "Nature": 4
+    },
+    actions: [{
+      name: "Bite",
+      action: "Standard Action",
+      text: "..."
+    }],
+    traits: [
+      {
+      name: "Pack tactics",
+      text: "..."
+    },
+    {
+      name: "Keen hearing and smell",
+      text: "..."
+    }]
+});
+
+Types.insert({
+    name: "Spider",
+    type: "main",
+    adjetives: ["Arachnid", "Crawling", "Black"],
+    prefix: ["spi", "tara", "drid"],
+    suffix: ["der", "ntula", "row", "dder"],
+    stats: {
+      "STR": +2,
+      "DEX": +4,
+      "CON": +2,
+      "INT": -8,
+      "CHA": -4
+    },
+    skills: {
+        "Stealth": 4
+    },
+    actions: [{
+      name: "Bite",
+      action: "Standard Action",
+      text: "This attack deals {{avg-damage}} and poisons the target for {{min-damage}}"
+    },
+    {
+      name: "Web",
+      action: "Standard Action",
+      text: "Recharge 5-6, on hit the target is restrained by webbing"
+    }],
+    traits: [
+      {
+      name: "Web walker",
+      text: "..."
+    },
+    {
+      name: "Web sense",
+      text: "..."
+    },
+    {
+      name: "Spider climb",
+      text: "..."
+    }]
+});
 //Insert some subtypes
 Types.insert({
     name: "Aquatic",
@@ -64,6 +227,45 @@ Types.insert({
     {
       name: "Slippery",
       text: "Any grab attack receives a -5"
+    }
+    ]
+});
+
+Types.insert({
+    name: "Shapeshifter",
+    type: "sub",
+    adjetives: [ "Treacherous", "Mirroring", ""],
+    prefix: [ "doppel", "mirr", "reflec" ],
+    suffix: [ "ganger", "rrorr", "tor", "tion"],
+    stats: {
+      "STR": -2,
+      "DEX": 4,
+      "CON": -2,
+      "CHA": 2
+    },
+    skills: {
+      "Deception": 6
+    },
+    actions: [
+    {
+      name: "Shapechanger",
+      action: "Standard Action",
+      text: "This creature can polymorph into a creature of its size it has seen, It's equipment it's not transformed"
+    },
+    {
+      name: "Multiattack",
+      action: "Standard Action",
+      text: "This creature makes two melee attacks"
+    }
+    ],
+    traits: [
+    {
+      name: "Ambusher",
+      text: "This creature has advantage on attack rolls against any creature it has surprised"
+    },
+    {
+      name: "Read thoughts",
+      text: "As the doppelganger skill"
     }
     ]
 });
@@ -128,6 +330,4 @@ Types.insert({
         text: "This creature can see in complete dark up to 60ft"
       }
     ]
-});
-
-}
+});}

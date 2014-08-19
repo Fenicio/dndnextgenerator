@@ -8,15 +8,13 @@ Array.prototype.randomPop = function() {
     return this.splice(Math.rand(0, this.length-1),1)[0];
 };
 
-
 /**
- * Returns an array of N items from the collection, queryied with options
+ * Returns an array of N items from the collection c, queryied with options
 */
 getRandomFromCollection = function(c, options, n) { //Not optimal, but kinda works
     var temp = c.find(options).fetch();
     var result = [];
     for(var i =0;i<n;i++) {
-        console.log("temp", temp);
         result.push(temp.randomPop());   
     }
     return result;

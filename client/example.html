@@ -7,10 +7,15 @@
 </body>
 
 <template name="hello">
-  {{greeting}}
-  <input type="button" value="Open the door" />
-  <br>
+  <div>
+  <input type="button" value="Roll a monster" />
+  <button name="loadType" class="btn btn-primary">Load type</button>
+    
+  </div>
   {{#with currentMonster}}
     {{> monster}}
+  {{/with}}
+  {{#with currentType}}
+    {{> type}}
   {{/with}}
 </template>

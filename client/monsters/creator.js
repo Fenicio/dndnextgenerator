@@ -1,11 +1,13 @@
 generateRandomMonster = function() {
     var subtypes = [];
     var monster = {};
+    
     subtypes = getRandomFromCollection(Types, {type: "sub"}, [1,1,1,2,2,3].random());
-    monster.type = getRandomFromCollection(Types,{type: "main"},1).pop();
-    subtypes.push(monster.type);
     monster.size = getRandomFromCollection(Types,{type: "size"},1).pop();
     subtypes.push(monster.size);
+    monster.type = getRandomFromCollection(Types,{type: "main"},1).pop();
+    subtypes.push(monster.type);
+    
     monster.actions = [{
       name: "Standard Attack",
       action: "Standard Action",
@@ -48,7 +50,6 @@ generateRandomMonster = function() {
 };
 
 generateMonsterName = function(subtypes) {
-  console.log("generateMonsterName", subtypes);
     var returnable="";
     var a = subtypes.random();
     var b = subtypes.random();

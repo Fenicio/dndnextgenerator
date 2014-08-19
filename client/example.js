@@ -10,6 +10,10 @@ if (Meteor.isClient) {
   Template.hello.events({
     'click input': function () {
       Session.set("currentMonster", generateRandomMonster());
+    },
+    'click button': function(e) {
+      e.preventDefault();
+      Session.set("currentType", getRandomFromCollection(Types, {}, 1));
     }
   });
 }
