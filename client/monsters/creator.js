@@ -23,7 +23,6 @@ generateRandomMonster = function() {
     monster.skills = {};
 
     monster.name=generateMonsterName(subtypes)
-    console.log("before subtypes", monster);
     subtypes.map(function(e, i) {
       if(e.actions && e.actions.length>0) {
         monster.actions.push(e.actions.randomPop());
@@ -46,4 +45,22 @@ generateRandomMonster = function() {
     });
     monster.subtypes=subtypes;
     return monster;
+};
+
+generateMonsterName = function(subtypes) {
+  console.log("generateMonsterName", subtypes);
+    var returnable="";
+    var a = subtypes.random();
+    var b = subtypes.random();
+    var c = subtypes.random();
+    if(a.adjetives) {
+        returnable += a.adjetives.random()+" ";
+    }
+    if(b.prefix) {
+        returnable += b.prefix.random();
+    }
+    if(c.suffix) {
+        returnable += c.suffix.random();
+    }
+    return returnable.trim();
 };

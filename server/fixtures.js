@@ -1,3 +1,4 @@
+if(Types.find().count()===0) {
 //Insert size types
 Types.insert({
     name: "Small",
@@ -128,3 +129,5 @@ Types.insert({
       }
     ]
 });
+
+}

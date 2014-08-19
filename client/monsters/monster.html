@@ -7,7 +7,9 @@
 -->
 <template name="monster">
     <div class="monster-header">
-        {{name}}
+        <strong>
+            {{name}}
+        </strong>
         <small>
         {{#each subtypes}} 
             {{> typeJewel}} 
@@ -28,6 +30,11 @@
             {{> skill}}
         {{/each}}
         <h3>Stats</h3>
-        Str: {{stat.str}}
+        Str: {{str}},
+        Dex: {{dex}},
+        Con: {{con}},
+        Int: {{int}},
+        Wis: {{wis}},
+        Cha: {{cha}}
     </div>
 </template>
