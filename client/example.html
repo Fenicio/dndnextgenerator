@@ -9,13 +9,12 @@
 <template name="hello">
   <div>
   <input type="button" value="Roll a monster" />
-  <button name="loadType" class="btn btn-primary">Load type</button>
-    
   </div>
   {{#with currentMonster}}
     {{> monster}}
   {{/with}}
-  {{#with currentType}}
+  <h2>Types</h2>
+  {{#each typesList}}
     {{> type}}
-  {{/with}}
+  {{/each}}
 </template>

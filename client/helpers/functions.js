@@ -20,3 +20,14 @@ getRandomFromCollection = function(c, options, n) { //Not optimal, but kinda wor
     return result;
 };
 
+objectToArray = function(obj) {
+    var list = [];
+    Object.keys(obj).forEach(function(sk, ind) {
+        list[ind]= {
+            name: sk,
+            value: obj[sk]
+        };
+    });
+    return list;
+};
+
