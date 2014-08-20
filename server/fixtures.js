@@ -13,6 +13,9 @@ Types.insert({
         "DEX": 4,
         "CON": -6
     },
+    size_armor: +4,
+    min_hitdice: 1,
+    max_hitdice: 6,
     skills: {
         "Stealth": 6
     },
@@ -33,6 +36,9 @@ Types.insert({
         "DEX": 2,
         "CON": -2
     },
+    size_armor: +2,
+    min_hitdice: 1,
+    max_hitdice: 8,
     skills: {
         "Stealth": 4
     },
@@ -47,6 +53,8 @@ Types.insert({
     adjetives: [""],
     prefix: [""],
     suffix: [""],
+    min_hitdice: 1,
+    max_hitdice: 10,
     stats: {
     },
     skills: {
@@ -67,6 +75,9 @@ Types.insert({
       "DEX": -4,
       "CON": +4
     },
+    size_armor: -2,
+    min_hitdice: 6,
+    max_hitdice: 16,
     skills: {
       "Stealth": -5
     },
@@ -86,6 +97,9 @@ Types.insert({
       "DEX": -6,
       "CON": +6
     },
+    size_armor: -4,
+    min_hitdice: 12,
+    max_hitdice: 24,
     skills: {
       "Stealth": -10
     },
@@ -105,6 +119,9 @@ Types.insert({
       "DEX": -8,
       "CON": +8
     },
+    size_armor: -6,
+    min_hitdice: 22,
+    max_hitdice: 32,
     skills: {
       "Stealth": -20
     },
@@ -135,12 +152,13 @@ Types.insert({
     name: "Quadruped Animal",
     type: "main",
     adjetives: [""],
-    prefix: ["pan", "wo", "ly", "assi", "lat"],
-    suffix: ["lf", "rg", "ther", "ynx"],
+    prefix: ["pan", "wo", "ly", "assi", "lat", "cani", "lio", "tige", "equi", "hippo", "hors"],
+    suffix: ["lf", "rg", "ther", "ynx", "sniffer", "ion", "iger", "orse"],
     stats: {},
     skills: {
         "Nature": 4
     },
+    natural_armor: 2,
     actions: [{
       name: "Bite",
       action: "Standard Action",
@@ -173,6 +191,7 @@ Types.insert({
     skills: {
         "Stealth": 4
     },
+    natural_armor: 2,
     actions: [{
       name: "Bite",
       action: "Standard Action",
@@ -197,6 +216,59 @@ Types.insert({
       text: "..."
     }]
 });
+
+Types.insert({
+    name: "Ooze",
+    type: "main",
+    adjetives: ["Oozing"],
+    prefix: ["sli", "mud", "gelat", "snot", "stick"],
+    suffix: ["lime", "mud", "latinous", "nous"],
+    natural_armor: -2,
+    stats: {
+      DEX: -4,
+      CON: +4,
+      INT: -6,
+      CHA: -6
+    },
+    skills: {
+    },
+    actions: [
+      {
+      name: "Engulf",
+      action: "Bonus Action",
+      text: "This creature makes a grapple attack, if both creatures are in the same position the attack succeds"
+    }],
+    traits: []
+});
+
+Types.insert({
+    name: "Bird",
+    type: "main",
+    adjetives: ["Flying"],
+    prefix: ["eagl", "chripp", "hawk", "phoe", "gryp"],
+    suffix: ["gle", "pping", "hawk", "enix", "yph"],
+    natural_armor: 1,
+    stats: {
+      DEX: +6,
+      CON: -4,
+      INT: -6,
+      CHA: -6
+    },
+    skills: {
+    },
+    actions: [
+      {
+      name: "Diving attack",
+      action: "Standard Action",
+      text: "Recharge [5-6] This creature plunges from the skies making a single attack with advantage and dealing {{min-damage}} extra"
+    }],
+    traits: [
+      {
+        name: "Fly",
+        text: "This creature can soar the skies at its normal speed"
+      }]
+});
+
 //Insert some subtypes
 Types.insert({
     name: "Aquatic",
@@ -307,7 +379,7 @@ Types.insert({
 Types.insert({
     name: "Goblinoid",
     type: "sub",
-    adjetives: ["Thief", "Invading", "Green"],
+    adjetives: ["Thiefing", "Invading", "Green"],
     prefix: ["hob", "gob", "hobgob", "bug"],
     suffix: ["lin", "blin", "bear", "noid"],
     stats: {
