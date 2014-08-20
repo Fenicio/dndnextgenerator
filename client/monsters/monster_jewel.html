@@ -1,0 +1,12 @@
+<template name="monsterJewel">
+    <li>
+    <strong>
+            {{name}}
+    </strong>
+    <small>
+    {{#each subtypes}} 
+        {{> typeJewel}} 
+    {{/each}}
+    </small>
+    </li>
+</template>
