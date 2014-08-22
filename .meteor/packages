@@ -4,5 +4,9 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
-insecure
+accounts-base
+accounts-google
+accounts-github
+accounts-facebook
+accounts-password
+accounts-twitter

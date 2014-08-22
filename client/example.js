@@ -3,7 +3,6 @@ if (Meteor.isClient) {
     return Session.get("currentMonster");
   }
   Template.hello.typesList = function() {
-    console.log(Types.find({}));
     return Types.find({});
   };
   Template.hello.events({

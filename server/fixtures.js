@@ -162,7 +162,9 @@ Types.insert({
     actions: [{
       name: "Bite",
       action: "Standard Action",
-      text: "..."
+      hit_bonus: 0,
+      hit_stat: "str",
+      text: "This attack deals {{avg-damage}}+{{str}}"
     }],
     traits: [
       {
@@ -195,11 +197,15 @@ Types.insert({
     actions: [{
       name: "Bite",
       action: "Standard Action",
-      text: "This attack deals {{avg-damage}} and poisons the target for {{min-damage}}"
+      hit_bonus: 0,
+      hit_stat: "str",
+      text: "This attack deals {{avg-damage}}+{{str}} and poisons the target doing {{min-damage}}+{{con}} damage, the creature is poisoned until it succeds a CON save against {{con-save}}"
     },
     {
       name: "Web",
       action: "Standard Action",
+      hit_bonus: 2,
+      hit_stat: "dex",
       text: "Recharge 5-6, on hit the target is restrained by webbing"
     }],
     traits: [
@@ -236,7 +242,9 @@ Types.insert({
       {
       name: "Engulf",
       action: "Bonus Action",
-      text: "This creature makes a grapple attack, if both creatures are in the same position the attack succeds"
+      hit_bonus: 0,
+      hit_stat: "con",
+      text: "This creature makes a grapple attack, if both creatures are in the same position the attack automatically hits"
     }],
     traits: []
 });
@@ -260,7 +268,9 @@ Types.insert({
       {
       name: "Diving attack",
       action: "Standard Action",
-      text: "Recharge [5-6] This creature plunges from the skies making a single attack with advantage and dealing {{min-damage}} extra"
+      hit_bonus: 2,
+      hit_stat: "dex",
+      text: "Recharge [5-6] This creature plunges from the skies making a single attack with advantage and dealing {{hard-damage}}+{{dex}} extra"
     }],
     traits: [
       {
@@ -287,18 +297,20 @@ Types.insert({
     {
       name: "Bubble Cannon",
       action: "Standard Action",
-      text: "This attack hits for {{max-damage}} on any rock item or creature"
+      hit_bonus: 2,
+      hit_stat: "dex",
+      text: "Recharge [5-6], This attack hits for {{hard-damage}}+{{dex}} if the target is an object or an earth based creature, this attack is a critical hit"
     },
     {
       name: "Aquaport",
       action: "Move Action",
-      text: "Once per round this creature can teleport to a nearby (30 feet) body of water"
+      text: "Once per round this creature can teleport to a body of water within {{see-distance}}"
     }
     ],
     traits: [
     {
       name: "Slippery",
-      text: "Any grab attack receives a -5"
+      text: "Any grab attack receives a -5 against this creature"
     }
     ]
 });
@@ -360,12 +372,14 @@ Types.insert({
     {
       name: "Grab",
       action: "Standard Action",
-      text: "Allows a grab attack at 15 ft"
+      hit_bonus: 2,
+      hit_stat: "dex",
+      text: "Allows a grab attack at {{lance-distance}}"
     },
     {
       name: "Streched Defense",
       action: "Reaction",
-      text: "Whenever a enemy charges, this creature gets a free attack"
+      text: "Whenever a moves into this creature range of attack, this creature gets a free attack, this reaction can only be used once per round"
     }
     ],
     traits: [
@@ -393,13 +407,13 @@ Types.insert({
       {
         name: "Surprise attack",
         action: "Standard",
-        text: "If this creatures surprises another creature and hits it deals {{min-damage}} extra damage"
+        text: "If this creatures surprises another creature and hits it deals {{hard-damage}} extra damage"
       }
     ],
     traits: [
       {
         name: "Darkvision",
-        text: "This creature can see in complete dark up to 60ft"
+        text: "This creature can see in complete dark up to {{see-distance}}"
       }
     ]
 });}

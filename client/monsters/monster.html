@@ -11,10 +11,13 @@
     </div>
     <div class="monster-body">
         <div>
-            HP: ({{hitdice}}) {{hitpoints}}
+            HP: ({{hitdice}}) {{hitpoints}} [Std: {{standard_hitpoints}}]
         </div>
         <div>
             AC: {{armor_class}}
+        </div>
+        <div>
+            CR: {{challenge_rating}}, XP: {{experience_points}} xp
         </div>
         <h3>Traits</h3>
         {{#each traits}}
@@ -35,6 +38,8 @@
         Int: {{int}},
         Wis: {{wis}},
         Cha: {{cha}}
-        
+    </div>
+    <div>
+        {{> monsterDraw}}
     </div>
 </template>
