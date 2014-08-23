@@ -1,3 +1,5 @@
+console.log(this);
+console.log(Layout);
 if (Meteor.isClient) {
   Template.hello.currentMonster = function() {
     return Session.get("currentMonster");

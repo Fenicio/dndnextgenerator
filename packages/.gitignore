@@ -1,2 +1,8 @@
 #Cloud 9 doesnt work with mrt so im just gonna port over my PC
 #iron-router
+/iron-router
+/iron-layout
+/blaze-layout
+/iron-core
+/iron-dynamic-template
+/bootstrap-3
