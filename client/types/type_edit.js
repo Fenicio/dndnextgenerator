@@ -14,4 +14,8 @@ Template.type_edit.events({
     'click [name="xtra_trait"]': function(e) {
         UI.insert(UI.render(Template.trait_form), $('[name="traits"]')[0]);
     },
+    'submit': function(e) {
+        e.preventDefault();
+        console.log(e);
+    }
 });

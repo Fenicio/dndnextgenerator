@@ -1,26 +1,35 @@
 <template name="type_edit">
     <div class="page-header">
-        <h2 class="page-title"><input type="text" value="{{name}}" class="form-control" placeholder="Name">
-        <small>
+        <h2 class="page-title"><div class="col-sm-6 col-xs-12"><input type="text" value="{{name}}" class="form-control" placeholder="Name"></div>
+        <small class="col-sm-6 col-xs-12">
+            <div class="col-sm-6"><label>Type:</label></div>
+            <div class="col-sm-6">
             <select class="form-control">{{type}}
             {{#each types}}
                 <option value="{{this}}">{{this}}</option>
             {{/each}}
             </select>
+            </div>
         </small>
         </h2>
     </div>
     <h3>Stats</h3>
     <ul class="list-unstyled">
         <div class="col-sm-6 col-xs-12">
-            <li>STR: <input type="number" class="form-control" value="{{str}}"></li>
-            <li>DEX: <input type="number" class="form-control" value="{{dex}}"></li>
-            <li>CON: <input type="number" class="form-control" value="{{con}}"></li>
+            <li><div class="col-sm-6 col-xs-6"><label>STR:</label></div>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" value="{{str}}"></div></li>
+            <li><div class="col-sm-6 col-xs-6"><label>DEX:</label></div>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" value="{{dex}}"></div></li>
+            <li><div class="col-sm-6 col-xs-6"><label>CON:</label></div>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" value="{{con}}"></div></li>
         </div>
         <div class="col-sm-6 col-xs-12">
-            <li>INT: <input type="number" class="form-control" value="{{int}}"></li>
-            <li>WIS: <input type="number" class="form-control" value="{{wis}}"></li>
-            <li>CHA: <input type="number" class="form-control" value="{{cha}}"></li>
+            <li><div class="col-sm-6 col-xs-6"><label>INT:</label></div>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" value="{{int}}"></div></li>
+            <li><div class="col-sm-6 col-xs-6"><label>WIS:</label></div>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" value="{{wis}}"></div></li>
+            <li><div class="col-sm-6 col-xs-6"><label>CHA:</label></div>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" value="{{cha}}"></div></li>
         </div>
     </ul>
     <h3>Skills <button name="xtra_skill" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button></h3>
@@ -52,6 +61,6 @@
         <li>Suffixes: <input type="text" class="form-control" value="{{suffix}}"></li>
     </ul>
     <div class="row">
-        <input type="submit" value="Save" class="btn btn-primary">
+        <input type="submit" value="Save" class="btn btn-success">
     </div>
 </template>
