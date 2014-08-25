@@ -11,5 +11,8 @@
 </template>
 
 <template name="hello">
-  {{> new_monster}}
+  These are the latest additions!
+  {{#each creatures}}
+    {{> monsterJewel}}
+  {{/each}}
 </template>

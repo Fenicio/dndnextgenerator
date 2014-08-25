@@ -1,9 +1,21 @@
 <template name="monster_list">
-    <ul class="list-item-group">
+    <div class="page-header">
+        <h2 class="page-title">
+            Monsters Recorded
+            <div class="pull-right">
+                <a href="{{pathFor 'new_monster'}}" class="btn btn-info">
+                    Record a new beast
+                </a>
+            </div>
+        </h2>
+    </div>
+    <ul class="list-group">
         {{#each monsters}}
-        <a href="#">
+        <li clas="list-item-group">
+            <a href="{{pathFor 'monster'}}">
             {{> monsterJewel}}
-        </a>
+            </a>
+        </li>
         {{/each}}
     </ul>
 </template>

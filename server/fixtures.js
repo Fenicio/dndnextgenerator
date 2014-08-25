@@ -50,9 +50,9 @@ Types.insert({
 Types.insert({
     name: "Medium",
     type: "size",
-    adjetives: [""],
-    prefix: [""],
-    suffix: [""],
+    adjetives: ["Man-sized"],
+    prefix: ["aa", "ee", "ii", "oo", "uu"],
+    suffix: ["aa", "ee", "ii", "oo", "uu"],
     min_hitdice: 1,
     max_hitdice: 10,
     stats: {
@@ -68,7 +68,7 @@ Types.insert({
     name: "Large",
     type: "size",
     adjetives: ["Hulking"],
-    prefix: ["ogr", "trol", "gi"],
+    prefix: ["ogr", "trol", "gi", "kilo"],
     suffix: ["gre", "oll", "ant"],
     stats: {
       "STR": +4,
@@ -90,7 +90,7 @@ Types.insert({
     name: "Huge",
     type: "size",
     adjetives: ["Inmense", "Ancient"],
-    prefix: ["tit", "coloss"],
+    prefix: ["tit", "coloss", "mega"],
     suffix: ["tan", "tanic", "ssal"],
     stats: {
       "STR": +6,
@@ -112,7 +112,7 @@ Types.insert({
     name: "Gargantuan",
     type: "size",
     adjetives: ["Monstrous"],
-    prefix: ["tarr"],
+    prefix: ["tarr", "giga", "tera", "exa"],
     suffix: ["asque"],
     stats: {
       "STR": +8,
@@ -151,7 +151,7 @@ Types.insert({
 Types.insert({
     name: "Quadruped Animal",
     type: "main",
-    adjetives: [""],
+    adjetives: ["Running"],
     prefix: ["pan", "wo", "ly", "assi", "lat", "cani", "lio", "tige", "equi", "hippo", "hors"],
     suffix: ["lf", "rg", "ther", "ynx", "sniffer", "ion", "iger", "orse"],
     stats: {},
@@ -281,9 +281,9 @@ Types.insert({
 
 //Insert some subtypes
 Types.insert({
-    name: "Aquatic",
+    name: "Waterbound",
     type: "sub",
-    adjetives: [ "Slippery", "Blue", ""],
+    adjetives: [ "Slippery", "Blue"],
     prefix: [ "Aqu", "Sli", "Hydro" ],
     suffix: [ "tic", "ish", "fin", "ark"],
     stats: {
@@ -318,7 +318,7 @@ Types.insert({
 Types.insert({
     name: "Shapeshifter",
     type: "sub",
-    adjetives: [ "Treacherous", "Mirroring", ""],
+    adjetives: [ "Treacherous", "Mirroring"],
     prefix: [ "doppel", "mirr", "reflec" ],
     suffix: [ "ganger", "rrorr", "tor", "tion"],
     stats: {
@@ -334,7 +334,7 @@ Types.insert({
     {
       name: "Shapechanger",
       action: "Standard Action",
-      text: "This creature can polymorph into a creature of its size it has seen, It's equipment it's not transformed"
+      text: "This creature can polymorph into a creature or inanimate object of its size it has seen, It's equipment it's not transformed"
     },
     {
       name: "Multiattack",
@@ -349,18 +349,18 @@ Types.insert({
     },
     {
       name: "Read thoughts",
-      text: "As the doppelganger skill"
+      text: "This creature can read superficial thoughts of creatures within {{see-distance}}"
     }
     ]
 });
       
 
 Types.insert({
-    name: "Long Appendage",
+    name: "Proboscis",
     type: "sub",
-    adjetives: ["Tickling", "Tentacled", "Long-Arm"],
-    prefix: ["Lon", "lagui", "Tenta"],
-    suffix: ["pus", "ncer", "whip"],
+    adjetives: ["Tickling", "Tentacled", "Long-Nosed"],
+    prefix: ["Lon", "lagui", "Tenta", "Ele"],
+    suffix: ["pus", "ncer", "whip", "phant"],
     stats: {
       "DEX": 2,
       "STR": -2
@@ -391,11 +391,11 @@ Types.insert({
 });
 
 Types.insert({
-    name: "Goblinoid",
+    name: "Skulking",
     type: "sub",
-    adjetives: ["Thiefing", "Invading", "Green"],
-    prefix: ["hob", "gob", "hobgob", "bug"],
-    suffix: ["lin", "blin", "bear", "noid"],
+    adjetives: ["Invading", "Green", "Cavern", "Skulking"],
+    prefix: ["hob", "gob", "hobgob", "bug", "ko"],
+    suffix: ["lin", "blin", "bear", "noid", "bold"],
     stats: {
       "DEX": 2,
       "CON": 2
@@ -416,4 +416,6 @@ Types.insert({
         text: "This creature can see in complete dark up to {{see-distance}}"
       }
     ]
-});}
+});
+  
+}

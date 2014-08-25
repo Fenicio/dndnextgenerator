@@ -5,10 +5,47 @@ Router.configure({
 });
 
 Router.map(function() {
-    this.route('hello', { path: '/' });
-    this.route('monster_list', { path: '/monsters' });
-    this.route('monster', { path: '/monster/:id' });
-    this.route('type_list', { path: '/types' });
-    this.route('type', { path: '/type/:id' });
-    
+    this.route('hello', { 
+      path: '/', 
+      waitOn: function () {
+        return Meteor.subscribe('creatures');
+      } 
+    });
+    this.route('monster_list', { 
+      path: '/monsters',
+      waitOn: function () { 
+        return Meteor.subscribe('creatures');
+      } 
+    });
+    this.route('new_monster', { 
+      path: '/new/monster', 
+      waitOn: function() {
+        return Meteor.subscribe('types');
+      }
+    });
+    this.route('monster', { 
+      path: '/monster/:id', 
+      waitOn: function () {
+        return Meteor.subscribe('creatures');
+      }
+    });
+    this.route('type_list', { 
+      path: '/types',
+      waitOn: function () {
+        return Meteor.subscribe('types');
+      }
+    });
+    this.route('type', { 
+      path: '/type/:_id',
+      data: function() {
+        return Types.findOne({ _id: this.params._id });
+      },
+      waitOn: function () {
+        return Meteor.subscribe('types');
+      }
+    });
+    this.route('new_type', {
+      path: '/new/type',
+      template: 'type_edit'
+    });
 });

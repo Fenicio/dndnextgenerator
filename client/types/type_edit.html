@@ -1,0 +1,57 @@
+<template name="type_edit">
+    <div class="page-header">
+        <h2 class="page-title"><input type="text" value="{{name}}" class="form-control" placeholder="Name">
+        <small>
+            <select class="form-control">{{type}}
+            {{#each types}}
+                <option value="{{this}}">{{this}}</option>
+            {{/each}}
+            </select>
+        </small>
+        </h2>
+    </div>
+    <h3>Stats</h3>
+    <ul class="list-unstyled">
+        <div class="col-sm-6 col-xs-12">
+            <li>STR: <input type="number" class="form-control" value="{{str}}"></li>
+            <li>DEX: <input type="number" class="form-control" value="{{dex}}"></li>
+            <li>CON: <input type="number" class="form-control" value="{{con}}"></li>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <li>INT: <input type="number" class="form-control" value="{{int}}"></li>
+            <li>WIS: <input type="number" class="form-control" value="{{wis}}"></li>
+            <li>CHA: <input type="number" class="form-control" value="{{cha}}"></li>
+        </div>
+    </ul>
+    <h3>Skills <button name="xtra_skill" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button></h3>
+    <div name="skills">
+    {{#each skills}}
+        {{> skill}}
+    {{/each}}
+    </div>
+    <h3>Actions <button name="xtra_action" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button></h3>
+    <div name="actions">
+    {{#each actions}}
+        {{> action_form}}
+    {{/each}}
+    </div>
+    <h3>Traits <button name="xtra_trait" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button></h3>
+    <div name="traits">
+    {{#each traits}}
+        {{> trait_form}}
+    {{/each}}
+    </div>
+    <h3>Stuff</h3>
+    <ul class="list-unstyled">
+        <li> Natural AC: <input type="number" class="form-control" value="{{natural_armor}}"></li>
+    </ul>
+    <h3>Name generation</h3>
+    <ul class="list-unstyled">
+        <li>Adjetives: <input type="text" class="form-control" value="{{adjetives}}"></li>
+        <li>Preffixes: <input type="text" class="form-control" value="{{prefix}}"></li>
+        <li>Suffixes: <input type="text" class="form-control" value="{{suffix}}"></li>
+    </ul>
+    <div class="row">
+        <input type="submit" value="Save" class="btn btn-primary">
+    </div>
+</template>

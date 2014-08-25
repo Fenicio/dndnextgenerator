@@ -1,8 +1,21 @@
 <template name="type_list">
-  <h2>Types</h2>
+  <div class="page-header">
+    <h2 class="page-title">
+      Types
+      <div class="pull-right">
+        <a href="{{pathFor 'new_type'}}" class="btn btn-info">
+          Record a new Type
+        </a>
+      </div>
+    </h2>
+  </div>
+  <ul class="list-unstyled">
   {{#each typesList}}
-    <a href="{{pathFor 'type'}}">
-    {{> typeJewel}}
-    </a>
+    <li class="list-item-group">
+      <a href="{{pathFor 'type'}}">
+        {{> typeJewel}}
+      </a>
+    </li>
   {{/each}}
+  </ul>
 </template>

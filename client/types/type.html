@@ -1,5 +1,7 @@
 <template name="type">
-    {{name}}
+    <div class="page-header">
+        <h2 class="page-title">{{name}} <small>{{type}}</small></h2>
+    </div>
     <h3>Stats</h3>
     {{#each stats}}
         {{> stat}}
@@ -8,12 +10,40 @@
     {{#each skills}}
         {{> skill}}
     {{/each}}
+    {{#if actions}}
     <h3>Actions</h3>
     {{#each actions}}
         {{> action}}
     {{/each}}
+    {{/if}}
+    {{#if traits}}
     <h3>Traits</h3>
     {{#each traits}}
         {{> trait}}
     {{/each}}
+    {{/if}}
+    <h3>Stuff</h3>
+    <ul class="list-unstyled">
+        {{#if size_armor}}
+        <li> Size AC: {{size_armor}}</li>
+        {{/if}}
+        {{#if natural_armor}}
+        <li> Natural AC: {{natural_armor}}</li>
+        {{/if}}
+        {{#if hitDice}}
+        <li> Hitdice: 1d{{hitDice}}</li>
+        {{/if}}
+        {{#if max_hitdice}}
+        <li> Max hitdice:  {{max_hitdice}}</li>
+        {{/if}}
+        {{#if min_hitdice}}
+        <li> Min. hitdice:  {{min_hitdice}}</li>
+        {{/if}}
+    </ul>
+    <h3>Name generation</h3>
+    <ul class="list-unstyled">
+        <li>Adjetives: {{adjetives}}</li>
+        <li>Preffixes: {{prefix}}</li>
+        <li>Suffixes: {{suffix}}</li>
+    </ul>
 </template>
