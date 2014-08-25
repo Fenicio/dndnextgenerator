@@ -13,7 +13,7 @@ Types.insert({
         "DEX": 4,
         "CON": -6
     },
-    size_armor: +4,
+    size_armor: -2,
     min_hitdice: 1,
     max_hitdice: 6,
     skills: {
@@ -36,7 +36,7 @@ Types.insert({
         "DEX": 2,
         "CON": -2
     },
-    size_armor: +2,
+    size_armor: -1,
     min_hitdice: 1,
     max_hitdice: 8,
     skills: {
@@ -75,7 +75,7 @@ Types.insert({
       "DEX": -4,
       "CON": +4
     },
-    size_armor: -2,
+    size_armor: +1,
     min_hitdice: 6,
     max_hitdice: 16,
     skills: {
@@ -97,7 +97,7 @@ Types.insert({
       "DEX": -6,
       "CON": +6
     },
-    size_armor: -4,
+    size_armor: +2,
     min_hitdice: 12,
     max_hitdice: 24,
     skills: {
@@ -119,7 +119,7 @@ Types.insert({
       "DEX": -8,
       "CON": +8
     },
-    size_armor: -6,
+    size_armor: +3,
     min_hitdice: 22,
     max_hitdice: 32,
     skills: {

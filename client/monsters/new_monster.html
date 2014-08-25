@@ -1,0 +1,18 @@
+<template name="new_monster">
+    <div class="row">
+        <input type="button" value="Roll a monster" class="btn btn-success" />
+    </div>
+    {{#with currentMonster}}
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            {{> monster}}
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            {{> monsterDraw}}
+        </div>
+    </div>
+    <div class="row">
+        <button name="savePicture" class="btn btn-success">Save</button>
+    </div>
+    {{/ with}}
+</template>

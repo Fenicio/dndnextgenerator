@@ -74,7 +74,7 @@ generateRandomMonster = function() {
     monster.n_hitdice = Math.rand(monster.size.min_hitdice, monster.size.max_hitdice);
     monster.hitdice = monster.n_hitdice+"d"+monster.size.hitDice+" + "+(monster.n_hitdice*((monster.stats.CON/2)-5));
     monster.hitpoints = Math.rand(Math.max(monster.n_hitdice*(1+(monster.stats.CON/2)-5),1), Math.max(monster.n_hitdice*(monster.size.hitDice+(monster.stats.CON/2)-5),1));
-    monster.standard_hitpoints = Math.max(1, Math.floor(monster.n_hitdice*(monster.size.hitDice+(monster.stats.CON/2)-5)));
+    monster.standard_hitpoints = Math.max(1, Math.floor(monster.n_hitdice*((monster.size.hitDice/2+0.5)+(monster.stats.CON/2)-5)));
     monster.armor_class = Math.floor(10 + monster.natural_armor+monster.dex_armor+monster.size_armor+monster.equipped_armor);
     monster.challenge_rating = generateChallengeRating(monster.armor_class, monster.hitpoints);
     monster.experience_points = Math.floor(-0.3553*Math.pow(monster.challenge_rating, 3) + 60.485*Math.pow(monster.challenge_rating,2) + 25.5534*monster.challenge_rating + 5.52);
@@ -102,9 +102,12 @@ generateMonsterName = function(subtypes) {
 };
 
 generateChallengeRating = function(AC, HP) {
-  var ac_cr = (AC-11.5)/2;
+  var ac_cr = (AC-12.5)/0.32;
   var hp_cr = Math.pow(HP/22.5, (1/0.8));
-  return Math.max(0, (ac_cr+hp_cr)/2);
+  var cr = Math.max(0, (2*ac_cr+8*hp_cr)/10)
+  var stimated_hp = (4.55 * Math.pow(cr,0.72)) * (0.31 * Math.log(cr) + 3.7)
+  console.log(cr, ac_cr, hp_cr, stimated_hp);
+  return cr;
 };
 
 generateDamage = function(monster) {

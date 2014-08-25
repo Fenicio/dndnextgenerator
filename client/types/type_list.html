@@ -1,0 +1,8 @@
+<template name="type_list">
+  <h2>Types</h2>
+  {{#each typesList}}
+    <a href="{{pathFor 'type'}}">
+    {{> typeJewel}}
+    </a>
+  {{/each}}
+</template>

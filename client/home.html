@@ -1,0 +1,15 @@
+<head>
+  <title>Fenicio's circus of wonders</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/journal/bootstrap.min.css" type="text/css" />
+</head>
+
+<template name="layout">
+  {{> header}}
+   <div class="container">
+    {{> yield}}
+  </div>
+</template>
+
+<template name="hello">
+  {{> new_monster}}
+</template>
