@@ -34,7 +34,7 @@ Meteor.methods({
         check(typeAttr.name, String);
         if(typeAttr.name.trim()==="") throw new Meteor.Error("303", "A type must be named");
         
-        type = {
+        var type = {
             name: typeAttr.name,
             type: typeAttr.type,
             actions: typeAttr.actions,
@@ -46,6 +46,12 @@ Meteor.methods({
             prefix: typeAttr.prefix.split(',').map(function(el) { return el.trim() }),
             suffix: typeAttr.suffix.split(',').map(function(el) { return el.trim() })
         };
+        if(type.stats.STR===NaN) type.stats.STR=0;
+        if(type.stats.DEX===NaN) type.stats.DEX=0;
+        if(type.stats.CON===NaN) type.stats.CON=0;
+        if(type.stats.INT===NaN) type.stats.INT=0;
+        if(type.stats.WIS===NaN) type.stats.WIS=0;
+        if(type.stats.CHA===NaN) type.stats.CHA=0;
         return Types.insert(type);
     },
     updateType: function(typeAttr, _id) {
@@ -53,7 +59,7 @@ Meteor.methods({
         check(typeAttr.name, String);
         if(typeAttr.name.trim()==="") throw new Meteor.Error("303", "A type must be named");
         
-        type={
+        var type={
             name: typeAttr.name,
             type: typeAttr.type,
             actions: typeAttr.actions,
@@ -65,6 +71,12 @@ Meteor.methods({
             prefix: typeAttr.prefix.split(',').map(function(el) { return el.trim() }),
             suffix: typeAttr.suffix.split(',').map(function(el) { return el.trim() })
         };
+        if(type.stats.STR===NaN) type.stats.STR=0;
+        if(type.stats.DEX===NaN) type.stats.DEX=0;
+        if(type.stats.CON===NaN) type.stats.CON=0;
+        if(type.stats.INT===NaN) type.stats.INT=0;
+        if(type.stats.WIS===NaN) type.stats.WIS=0;
+        if(type.stats.CHA===NaN) type.stats.CHA=0;
         Types.update({_id: _id }, type);
         return _id;
     }

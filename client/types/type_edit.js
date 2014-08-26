@@ -35,12 +35,12 @@ Template.type_edit.events({
             actions: [],
             skills: [],
             stats: {
-                STR: parseInt(0+$('[name="STR"]').val()),
-                DEX: parseInt(0+$('[name="DEX"]').val()),
-                CON: parseInt(0+$('[name="CON"]').val()),
-                INT: parseInt(0+$('[name="INT"]').val()),
-                WIS: parseInt(0+$('[name="WIS"]').val()),
-                CHA: parseInt(0+$('[name="CHA"]').val())
+                STR: parseInt($('[name="STR"]').val()),
+                DEX: parseInt($('[name="DEX"]').val()),
+                CON: parseInt($('[name="CON"]').val()),
+                INT: parseInt($('[name="INT"]').val()),
+                WIS: parseInt($('[name="WIS"]').val()),
+                CHA: parseInt($('[name="CHA"]').val())
             },
             natural_armor: $('[name="natural_armor"]').val(),
             adjetives: $('[name="adjetives"]').val(),
