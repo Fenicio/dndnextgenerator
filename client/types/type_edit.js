@@ -1,8 +1,20 @@
 Template.type_edit.types = function() {
     return [
-        "main", "size", "sub"
+        {id: "main"}, {id: "sub"} //"size",
         ];
 };
+
+Template.type_edit.selected = function(cad) {
+    console.log(this.id, cad);
+    return cad===this.id ? "selected" : "";
+};
+
+Template.type_edit.STR = function() { console.log(this); return this.stats.STR; };
+Template.type_edit.DEX = function() { return this.stats.DEX; };
+Template.type_edit.CON = function() { return this.stats.CON; };
+Template.type_edit.INT = function() { return this.stats.INT; };
+Template.type_edit.WIS = function() { return this.stats.WIS; };
+Template.type_edit.CHA = function() { return this.stats.CHA; };
 
 Template.type_edit.events({
     'click [name="xtra_action"]': function(e) {
@@ -23,12 +35,12 @@ Template.type_edit.events({
             actions: [],
             skills: [],
             stats: {
-                STR: $('[name="STR"]').val(),
-                DEX: $('[name="DEX"]').val(),
-                CON: $('[name="CON"]').val(),
-                INT: $('[name="INT"]').val(),
-                WIS: $('[name="WIS"]').val(),
-                CHA: $('[name="CHA"]').val()
+                STR: parseInt(0+$('[name="STR"]').val()),
+                DEX: parseInt(0+$('[name="DEX"]').val()),
+                CON: parseInt(0+$('[name="CON"]').val()),
+                INT: parseInt(0+$('[name="INT"]').val()),
+                WIS: parseInt(0+$('[name="WIS"]').val()),
+                CHA: parseInt(0+$('[name="CHA"]').val())
             },
             natural_armor: $('[name="natural_armor"]').val(),
             adjetives: $('[name="adjetives"]').val(),
@@ -36,31 +48,46 @@ Template.type_edit.events({
             suffix: $('[name="suffix"]').val()
         };
         console.log(type);
-        $('[name="actions"]').children().each(function(el, i) {
+        $('[name="actions"]').children().each(function(i, el) {
+            el = $(el);
             var action = {
                 name: el.find('[name="action_name"]').val(),
                 action: el.find('[name="action_action"]').val(),
-                hitBonus: el.find('[name="action_hitbonus"]').val(),
+                hit_bonus: el.find('[name="action_hit_bonus"]').val(),
+                hit_stat: el.find('[name="action_hit_stat"]').val(),
                 text: el.find('[name="action_text"]').val()
             };
             type.actions.push(action);
         });
-        $('[name="skills"]').children().each(function(el, i) {
+        $('[name="skills"]').children().each(function(i, el) {
+            el = $(el);
             var skill = {
                 name: el.find('[name="skill_name"]').val(),
                 value: el.find('[name="skill_value"]').val() 
             };
-            types.skills.push(skill);
+            type.skills.push(skill);
         });
-        $('[name="traits"]').children().each(function(el, i) {
+        $('[name="traits"]').children().each(function(i, el) {
+            el = $(el);
             var trait = {
                 name: el.find('[name="trait_name"]').val(),
                 text: el.find('[name="trait_text"]').val()
             };
             type.traits.push(trait);
         });
-        Meteor.call('type', type, function(error, typeId) {
-            console.log(error, typeId);
-        });
+        console.log(Router.current(),Router.routes['new_type']);
+        if(Router.current() && Router.current().route.name===Router.routes['new_type'].name) {
+            Meteor.call('type', type, function(error, typeId) {
+                if(error) throw new Meteor.Error(error);
+                console.log(error, typeId);
+                Router.go('type', {_id: typeId});
+            });
+        } else {
+            Meteor.call('updateType', type, this._id, function(error, typeId) {
+               if(error) throw new Meteor.Error(error);
+               console.log(error, typeId); 
+               Router.go('type', {_id: typeId});
+            });
+        }
     }
 });

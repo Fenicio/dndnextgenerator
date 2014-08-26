@@ -44,6 +44,15 @@ Router.map(function() {
         return Meteor.subscribe('types');
       }
     });
+    this.route('type_edit', {
+      path: '/edit/type/:_id',
+      data: function() {
+        return Types.findOne({ _id: this.params._id });
+      }, 
+      waitOn: function() {
+        return Meteor.subscribe('types'); //TODO single type
+      }
+    });
     this.route('new_type', {
       path: '/new/type',
       template: 'type_edit'

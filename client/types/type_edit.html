@@ -7,9 +7,9 @@
         <small class="col-sm-6 col-xs-12">
             <div class="col-sm-6"><label>Type:</label></div>
             <div class="col-sm-6">
-            <select class="form-control" name="type">{{type}}
+            <select class="form-control" name="type">
             {{#each types}}
-                <option value="{{this}}">{{this}}</option>
+                <option value="{{id}}" {{selected ../type}}>{{id}}</option>
             {{/each}}
             </select>
             </div>
@@ -20,19 +20,19 @@
     <ul class="list-unstyled">
         <div class="col-sm-6 col-xs-12">
             <li><div class="col-sm-6 col-xs-6"><label>STR:</label></div>
-                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="STR" value="{{str}}"></div></li>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="STR" value="{{STR}}"></div></li>
             <li><div class="col-sm-6 col-xs-6"><label>DEX:</label></div>
-                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="DEX" value="{{dex}}"></div></li>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="DEX" value="{{DEX}}"></div></li>
             <li><div class="col-sm-6 col-xs-6"><label>CON:</label></div>
-                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="CON" value="{{con}}"></div></li>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="CON" value="{{CON}}"></div></li>
         </div>
         <div class="col-sm-6 col-xs-12">
             <li><div class="col-sm-6 col-xs-6"><label>INT:</label></div>
-                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="INT" value="{{int}}"></div></li>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="INT" value="{{INT}}"></div></li>
             <li><div class="col-sm-6 col-xs-6"><label>WIS:</label></div>
-                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="WIS" value="{{wis}}"></div></li>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="WIS" value="{{WIS}}"></div></li>
             <li><div class="col-sm-6 col-xs-6"><label>CHA:</label></div>
-                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="CHA" value="{{cha}}"></div></li>
+                <div class="col-sm-6 col-xs-6"><input type="number" class="form-control" name="CHA" value="{{CHA}}"></div></li>
         </div>
     </ul>
     <h3>Skills <button name="xtra_skill" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i></button></h3>

@@ -1,6 +1,12 @@
 <template name="type">
     <div class="page-header">
-        <h2 class="page-title">{{name}} <small>{{type}}</small></h2>
+      <h2 class="page-title">{{name}} <small>{{type}}</small>
+        <div class="pull-right">
+          <a href="{{pathFor 'type_edit'}}" class="btn btn-info">
+            Edit this type
+          </a>
+        </div>
+      </h2>
     </div>
     <h3>Stats</h3>
     {{#each stats}}

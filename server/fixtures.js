@@ -137,7 +137,7 @@ Types.insert({
     name: "Humanoid",
     type: "main",
     canEquip: 1,
-    adjetives: [""],
+    adjetives: ["Homo"],
     prefix: ["hu", "el", "or", "assi", "lat"],
     suffix: ["man", "lf", "rc", "maar"],
     stats: {},
@@ -149,11 +149,11 @@ Types.insert({
 });
 
 Types.insert({
-    name: "Quadruped Animal",
+    name: "Canis",
     type: "main",
-    adjetives: ["Running"],
-    prefix: ["pan", "wo", "ly", "assi", "lat", "cani", "lio", "tige", "equi", "hippo", "hors"],
-    suffix: ["lf", "rg", "ther", "ynx", "sniffer", "ion", "iger", "orse"],
+    adjetives: ["Running", "Canis"],
+    prefix: ["chak", "wo", "assi", "lat", "cani", "coy", "coyo"],
+    suffix: ["lf", "rg", "al", "sniffer", "ffer", "te", "yote"],
     stats: {},
     skills: {
         "Nature": 4
@@ -252,7 +252,7 @@ Types.insert({
 Types.insert({
     name: "Bird",
     type: "main",
-    adjetives: ["Flying"],
+    adjetives: ["Flying", "Ave", "Avialae"],
     prefix: ["eagl", "chripp", "hawk", "phoe", "gryp"],
     suffix: ["gle", "pping", "hawk", "enix", "yph"],
     natural_armor: 1,
