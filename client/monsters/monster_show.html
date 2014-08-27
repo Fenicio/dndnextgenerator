@@ -1,0 +1,10 @@
+<template name="monster_show">
+  <div class="col-sm-6 col-xs-12">
+    {{> monster}}
+  </div>
+  {{#each pictures}}
+  <div class="col-sm-6 col-xs-12">
+    <img src="{{this}}">
+  </div>
+  {{/each}}
+</template>

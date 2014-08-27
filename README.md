@@ -17,6 +17,9 @@ Creatures can/should have pictures accompaying them as well as a written descrip
 
 
 TODOS:
+Must show validation errors.
+Must make sure size types are not modificable.
+Must show some monsters.
 An encounter is a bunch of creatures who share a common trait and fill a Challenge Rating, a encounter can also be based in a location.
 A trap is something that is found in dungeons and eats tasty adventurers.
 A dungeon is a location that holds encounters, doors, puzzles and traps.

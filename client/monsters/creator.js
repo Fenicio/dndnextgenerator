@@ -111,15 +111,34 @@ generateChallengeRating = function(AC, HP) {
 };
 
 generateDamage = function(monster) {
-  var min_damage = number_to_dice(monster.challenge_rating*3);
-  var avg_damage = number_to_dice(monster.challenge_rating*4);
-  var hard_damage = number_to_dice(monster.challenge_rating*5);
-  var solo_damage = number_to_dice(monster.challenge_rating*8);
-  var melee_distance = "5 feet"; //TODO
+  var min_damage = number_to_dice(monster.challenge_rating*1.5);
+  var avg_damage = number_to_dice(monster.challenge_rating*2.5);
+  var hard_damage = number_to_dice(monster.challenge_rating*3.5);
+  var solo_damage = number_to_dice(monster.challenge_rating*5);
+  var melee_distance = "5 feet";
   var lance_distance = "10 feet";
-  var see_distance = "60 feet";
+  var see_distance = "30 feet";
   var throw_distance = "90 feet";
-  var long_distance = "160 feet";
+  var long_distance = "180 feet";
+  if(monster.size.name==="Large") {
+    melee_distance = "10 feet";
+    lance_distance = "20 feet";
+    see_distance = "60 feet";
+    throw_distance = "180 feet";
+    long_distance = "360 feet";
+  } else if(monster.size.name==="Huge") {
+    melee_distance = "15 feet";
+    lance_distance = "30 feet";
+    see_distance = "90 feet";
+    throw_distance = "270 feet";
+    long_distance = "540 feet";
+  } else if(monster.size.name==="Gargantuan") {
+    melee_distance = "20 feet";
+    lance_distance = "40 feet";
+    see_distance = "120 feet";
+    throw_distance = "360 feet";
+    long_distance = "720 feet";
+  }
   var replacer = function(e, i) {
     e.text=e.text.replace("{{min-damage}}", min_damage);
     e.text=e.text.replace("{{avg-damage}}", avg_damage);
@@ -143,15 +162,15 @@ generateDamage = function(monster) {
     e.text=e.text.replace("{{throw-distance}}", throw_distance);
     e.text=e.text.replace("{{long-distance}}", long_distance);
     if(e.hit_stat) {
-      var bonus = monster.hit_bonus;
-      if(e.hit_bonus) bonus += e.hit_bonus;
+      var bonus = parseInt(monster.hit_bonus);
+      if(e.hit_bonus) bonus += parseInt(e.hit_bonus);
       if(e.hit_stat) {
-        if(e.hit_stat=="str") bonus+=Math.floor((monster.stats.STR-5)/2);
-        if(e.hit_stat=="dex") bonus+=Math.floor((monster.stats.DEX-5)/2);
-        if(e.hit_stat=="con") bonus+=Math.floor((monster.stats.CON-5)/2);
-        if(e.hit_stat=="int") bonus+=Math.floor((monster.stats.INT-5)/2);
-        if(e.hit_stat=="wis") bonus+=Math.floor((monster.stats.WIS-5)/2);
-        if(e.hit_stat=="cha") bonus+=Math.floor((monster.stats.CHA-5)/2);
+        if(e.hit_stat=="str") bonus+=parseInt(Math.floor((monster.stats.STR-5)/2));
+        if(e.hit_stat=="dex") bonus+=parseInt(Math.floor((monster.stats.DEX-5)/2));
+        if(e.hit_stat=="con") bonus+=parseInt(Math.floor((monster.stats.CON-5)/2));
+        if(e.hit_stat=="int") bonus+=parseInt(Math.floor((monster.stats.INT-5)/2));
+        if(e.hit_stat=="wis") bonus+=parseInt(Math.floor((monster.stats.WIS-5)/2));
+        if(e.hit_stat=="cha") bonus+=parseInt(Math.floor((monster.stats.CHA-5)/2));
       }
       if(bonus>=0) {
         e.text = "+ "+bonus+": "+e.text;

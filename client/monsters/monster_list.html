@@ -1,21 +1,19 @@
 <template name="monster_list">
-    <div class="page-header">
-        <h2 class="page-title">
-            Monsters Recorded
-            <div class="pull-right">
-                <a href="{{pathFor 'new_monster'}}" class="btn btn-info">
-                    Record a new beast
-                </a>
-            </div>
-        </h2>
-    </div>
-    <ul class="list-group">
-        {{#each monsters}}
-        <li clas="list-item-group">
-            <a href="{{pathFor 'monster'}}">
-            {{> monsterJewel}}
-            </a>
-        </li>
-        {{/each}}
-    </ul>
+  <div class="page-header">
+    <h2 class="page-title">
+      Monsters Recorded
+      <div class="pull-right">
+        <a href="{{pathFor 'new_monster'}}" class="btn btn-info">
+          Record a new beast
+        </a>
+      </div>
+    </h2>
+  </div>
+  <div class="list-group">
+    {{#each monsters}}
+      <a class="list-group-item" href="{{pathFor 'monster' this}}">
+        {{> monsterJewel}}
+      </a>
+    {{/each}}
+  </div>
 </template>

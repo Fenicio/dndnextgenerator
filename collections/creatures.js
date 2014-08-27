@@ -12,10 +12,11 @@ Creatures.allow({
 
 Meteor.methods({
     creature: function(creatAttr) {
-        
-        creature = {};
+        //TODO validation
+        var creature = creatAttr;
         return Creatures.insert(creature);
     }, updateCreature: function(creatAttr, _id) {
-        
+        //TODO validation
+        return _id;
     }
-})
+});

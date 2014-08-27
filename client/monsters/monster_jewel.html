@@ -1,12 +1,13 @@
 <template name="monsterJewel">
-    <li>
-        <strong>
-            {{name}}
-        </strong>
-        <small>
-        {{#each subtypes}} 
-            {{> typeJewel}} 
-        {{/each}}
-        </small>
-    </li>
+    <strong>
+        {{name}}
+    </strong>
+    <small>
+    {{#each subtypes}} 
+        {{> typeJewel}} 
+    {{/each}}
+    </small>
+    <div class="pull-right">
+        CR: {{challenge_rating}}
+    </div>
 </template>
