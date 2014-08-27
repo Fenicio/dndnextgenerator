@@ -34,11 +34,11 @@ objectToArray = function(obj) {
 };
 
 number_to_dice = function(number) {
-    if(number%12<4) {
+    if(number%12<4 && number>10) {
         return Math.max(1,Math.floor(number/12))+"d12";
-    } else if(number%10<3) {
+    } else if(number%10<3 && number > 8) {
         return Math.max(1,Math.floor(number/10))+"d10";
-    } else if(number%8<2) {
+    } else if(number%8<2 && number > 6) {
         return Math.max(1,Math.floor(number/8))+"d8";
     } else {
         return Math.max(1,Math.floor(number/6))+"d6";

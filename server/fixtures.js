@@ -291,7 +291,7 @@ Types.insert({
       "CON": -2
     },
     skills: {
-      "Athletics": 4
+      "Athletics": 6
     },
     actions: [
     {
@@ -310,7 +310,7 @@ Types.insert({
     traits: [
     {
       name: "Slippery",
-      text: "Any grab attack receives a -5 against this creature"
+      text: "Any grapple attack receives disadvantage against this creature"
     }
     ]
 });
@@ -375,17 +375,12 @@ Types.insert({
       hit_bonus: 2,
       hit_stat: "dex",
       text: "Allows a grab attack at {{lance-distance}}"
-    },
-    {
-      name: "Streched Defense",
-      action: "Reaction",
-      text: "Whenever a moves into this creature range of attack, this creature gets a free attack, this reaction can only be used once per round"
     }
     ],
     traits: [
     {
-      name: "Great climber",
-      text: "This creature can move through vertical walls at half its movement speed"
+      name: "Streched Defense",
+      text: "Whenever a moves into this creature range of attack, this creature gets a free attack, this reaction can only be used once per round"
     }
     ]
 });
@@ -401,7 +396,7 @@ Types.insert({
       "CON": 2
     },
     skills: { 
-      "Stealth": 4
+      "Stealth": 6
     },
     actions: [
       {

@@ -11,6 +11,7 @@ Template.new_monster.events({
     Meteor.call('creature', monster, function(err, monsterId) {
       console.log(err, monsterId);
       if(err) throw err;
+      Session.set("currentMonster",null);
       Router.go("monster", {_id: monsterId});
     });
   }
