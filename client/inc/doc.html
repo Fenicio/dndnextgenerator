@@ -1,0 +1,48 @@
+<template name="documentation">
+    <div class="page-header">
+        <h2 class="page-title">
+            Documentation
+        </h2>
+    </div>
+    <h3>Traits</h3>
+    There are currently 3 kinds of templates: main, sub and size.<br />
+    Main represents a base creature, a spider, a bird, a humanoid and so on...<br/>
+    Sub represents something special about the creature: winged, bloodsucking, regenerating and such<br />
+    Size represents it's size, since sizes are "locked" I have disabled the editing/creation of sizes<br />
+    <br>
+    <hr>
+    Traits have a bunch on templates to use on the description of traits and actions, these templates are:<br>
+    <dl class="dl-horizontal">
+        <dt>&#123;{min-damage}}</dt><dd>Low damage for this CR</dd>
+        <dt>&#123;{avg-damage}}</dt><dd>Average damage for this CR</dd>
+        <dt>&#123;{hard-damage}}</dt><dd>Hard damage for this CR</dd>
+        <dt>&#123;{solo-damage}}</dt><dd>Awesome fun damage for this CR</dd>
+        <dt>&#123;{str}}</dt><dd>STR modifier</dd>
+        <dt>&#123;{dex}}</dt><dd>DEX modifier</dd>
+        <dt>&#123;{con}}</dt><dd>CON modifier</dd>
+        <dt>&#123;{int}}</dt><dd>INT modifier</dd>
+        <dt>&#123;{wis}}</dt><dd>WIS modifier</dd>
+        <dt>&#123;{cha}}</dt><dd>CHA modifier</dd>
+        <dt>&#123;{str-save}}</dt><dd>10+STR modifier</dd>
+        <dt>&#123;{dex-save}}</dt><dd>10+DEX modifier</dd>
+        <dt>&#123;{con-save}}</dt><dd>10+CON modifier</dd>
+        <dt>&#123;{int-save}}</dt><dd>10+INT modifier</dd>
+        <dt>&#123;{wis-save}}</dt><dd>10+WIS modifier</dd>
+        <dt>&#123;{cha-save}}</dt><dd>10+CHA modifier</dd>
+        <dt>&#123;{melee-distance}}</dt><dd>Melee distance (5ft for medium creature)</dd>
+        <dt>&#123;{lance-distance}}</dt><dd>Distance if equipped with reach weapon (10ft for medium creature)</dd>
+        <dt>&#123;{see-distance}}</dt><dd>Average distance of darkvision (60ft for medium creature)</dd>
+        <dt>&#123;{throw-distance}}</dt><dd>Bow distance (200ft or so)</dd>
+        <dt>&#123;{long-distance}}</dt><dd>Sniper distance (600ft or so)</dd>
+    </dl>
+    <br>
+    <h3>Creatures</h3>
+    Creatures get 1 size type, 1 main type and then 1-3 subtypes.<br>
+    After the stats, AC and hitpoints are generated the CR is calculated.<br>
+    Once the CR is calculated the damage is assigned.<br>
+    You may have noticed I use decimal CR and not linear XP, this is by design. I think CR is a very limiting system allowing the satyr/gnoll paradox to exist.<br>
+    <br>
+    <h3>About</h3>
+    I've been mastering for some years and I have always loved generated content.<br>
+    Being a lover of Dwarf Fortress I wanted to bring some of it's chaotic awesomeness to the table, and thus this was born.<br>
+</template>

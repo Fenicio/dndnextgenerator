@@ -5,7 +5,6 @@ Template.type_edit.types = function() {
 };
 
 Template.type_edit.selected = function(cad) {
-    console.log(this.id, cad);
     return cad===this.id ? "selected" : "";
 };
 
@@ -15,6 +14,10 @@ Template.type_edit.CON = function() { return this.stats.CON; };
 Template.type_edit.INT = function() { return this.stats.INT; };
 Template.type_edit.WIS = function() { return this.stats.WIS; };
 Template.type_edit.CHA = function() { return this.stats.CHA; };
+
+Template.type_edit.skills = function() {
+    return objectToArray(this.skills);
+};
 
 Template.type_edit.events({
     'click [name="xtra_action"]': function(e) {
@@ -53,8 +56,8 @@ Template.type_edit.events({
             var action = {
                 name: el.find('[name="action_name"]').val(),
                 action: el.find('[name="action_action"]').val(),
-                hit_bonus: el.find('[name="action_hit_bonus"]').val(),
-                hit_stat: el.find('[name="action_hit_stat"]').val(),
+                hit_bonus: el.find('[name="action_hitBonus"]').val(),
+                hit_stat: el.find('[name="action_hitStat"]').val(),
                 text: el.find('[name="action_text"]').val()
             };
             type.actions.push(action);

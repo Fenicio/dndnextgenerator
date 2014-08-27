@@ -2,9 +2,11 @@
     <div class="page-header">
       <h2 class="page-title">{{name}} <small>{{type}}</small>
         <div class="pull-right">
+          {{#if isNotSize}}
           <a href="{{pathFor 'type_edit'}}" class="btn btn-info">
             Edit this type
           </a>
+          {{/if}}
         </div>
       </h2>
     </div>

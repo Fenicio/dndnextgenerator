@@ -104,7 +104,7 @@ generateMonsterName = function(subtypes) {
 generateChallengeRating = function(AC, HP) {
   var ac_cr = Math.max(0,(AC-12.5)/0.32);
   var hp_cr = Math.max(0,Math.pow(HP/22.5, (1/0.8)));
-  var cr = Math.max(0, (2*ac_cr+8*hp_cr)/10);
+  var cr = Math.max(0, (0.5*ac_cr+9.5*hp_cr)/10);
   var stimated_hp = (4.55 * Math.pow(cr,0.72)) * (0.31 * Math.log(cr) + 3.7)
   console.log(cr, ac_cr, hp_cr, stimated_hp);
   return cr;

@@ -50,11 +50,15 @@ Router.map(function() {
         return Types.findOne({ _id: this.params._id });
       }, 
       waitOn: function() {
-        return Meteor.subscribe('types'); //TODO single type
+        console.log("waiting", Meteor.subscribe('types').ready());
+        return Meteor.subscribe('types').ready(); //TODO single type
       }
     });
     this.route('new_type', {
       path: '/new/type',
       template: 'type_edit'
+    });
+    this.route('documentation', {
+      path: '/documentation'
     });
 });

@@ -21,6 +21,8 @@ getRandomFromCollection = function(c, options, n) { //Not optimal, but kinda wor
 };
 
 objectToArray = function(obj) {
+    if(Array.isArray(obj)) return obj;
+    if(!obj) return [];
     var list = [];
     Object.keys(obj).forEach(function(sk, ind) {
         list[ind]= {

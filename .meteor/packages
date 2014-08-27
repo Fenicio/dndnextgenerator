@@ -10,5 +10,5 @@ accounts-github
 accounts-facebook
 accounts-password
 accounts-twitter
-iron-router
-bootstrap-3
+cmather:iron-router@0.8.2
+mrt:bootstrap-3@3.2.0-1

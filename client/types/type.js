@@ -5,3 +5,6 @@ Template.type.stats = function() {
 Template.type.skills = function() {
     return objectToArray(this.skills);
 }
+Template.type.isNotSize = function() {
+    return this.type!=="size";
+}
