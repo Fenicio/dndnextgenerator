@@ -38,8 +38,8 @@ logging@1.0.2
 meteor@1.0.2
 minifiers@1.0.2
 minimongo@1.0.1
+mizzao:bootstrap-3@3.2.0
 mongo-livedata@1.0.3
-mrt:bootstrap-3@3.2.0-1
 npm-bcrypt@0.7.7
 oauth1@1.0.0
 oauth2@1.0.0

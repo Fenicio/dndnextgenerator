@@ -11,4 +11,5 @@ accounts-facebook
 accounts-password
 accounts-twitter
 cmather:iron-router@0.8.2
-mrt:bootstrap-3@3.2.0-1
+mizzao:bootstrap-3
+

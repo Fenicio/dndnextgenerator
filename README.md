@@ -4,6 +4,9 @@ dndnextgenerator
 Monster/Dungeon/Encounter/Campaign/Whatever generator/crowd based for Dungeons and Dragons 5E
 
 
+Currently deployed at dndgen.meteor.com
+
+
 A Type is something an attribute that defines another element(creatures, locations, traps, dungeons...), 
 such as flying, aquatic, goblinoid, huge, regenerative and anything else.
 
