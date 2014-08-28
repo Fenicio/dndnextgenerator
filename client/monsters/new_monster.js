@@ -1,3 +1,9 @@
+Template.new_monster.rendered = function() {
+  if(!Session.get("currentMonster")) {
+    Session.set("currentMonster", generateRandomMonster());
+  }
+};
+
 Template.new_monster.events({
   'click input[name="generateMonster"]': function () {
     Session.set("currentMonster", generateRandomMonster());
@@ -19,4 +25,4 @@ Template.new_monster.events({
 
 Template.new_monster.currentMonster = function() {
   return Session.get("currentMonster");
-}
+};

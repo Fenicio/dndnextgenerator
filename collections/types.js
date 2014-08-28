@@ -32,12 +32,12 @@ Meteor.methods({
             prefix: typeAttr.prefix.split(',').map(function(el) { return el.trim() }),
             suffix: typeAttr.suffix.split(',').map(function(el) { return el.trim() })
         };
-        if(parseInt(type.stats.STR)===NaN) type.stats.STR=0;
-        if(parseInt(type.stats.DEX)===NaN) type.stats.DEX=0;
-        if(parseInt(type.stats.CON)===NaN) type.stats.CON=0;
-        if(parseInt(type.stats.INT)===NaN) type.stats.INT=0;
-        if(parseInt(type.stats.WIS)===NaN) type.stats.WIS=0;
-        if(parseInt(type.stats.CHA)===NaN) type.stats.CHA=0;
+        if(isNaN(parseInt(type.stats.STR))) type.stats.STR=0;
+        if(isNaN(parseInt(type.stats.DEX))) type.stats.DEX=0;
+        if(isNaN(parseInt(type.stats.CON))) type.stats.CON=0;
+        if(isNaN(parseInt(type.stats.INT))) type.stats.INT=0;
+        if(isNaN(parseInt(type.stats.WIS))) type.stats.WIS=0;
+        if(isNaN(parseInt(type.stats.CHA))) type.stats.CHA=0;
         return Types.insert(type);
     },
     updateType: function(typeAttr, _id) {
@@ -62,12 +62,12 @@ Meteor.methods({
             prefix: typeAttr.prefix.split(',').map(function(el) { return el.trim() }),
             suffix: typeAttr.suffix.split(',').map(function(el) { return el.trim() })
         };
-        if(parseInt(type.stats.STR)===NaN) type.stats.STR=0;
-        if(parseInt(type.stats.DEX)===NaN) type.stats.DEX=0;
-        if(parseInt(type.stats.CON)===NaN) type.stats.CON=0;
-        if(parseInt(type.stats.INT)===NaN) type.stats.INT=0;
-        if(parseInt(type.stats.WIS)===NaN) type.stats.WIS=0;
-        if(parseInt(type.stats.CHA)===NaN) type.stats.CHA=0;
+        if(isNaN(parseInt(type.stats.STR))) type.stats.STR=0;
+        if(isNaN(parseInt(type.stats.DEX))) type.stats.DEX=0;
+        if(isNaN(parseInt(type.stats.CON))) type.stats.CON=0;
+        if(isNaN(parseInt(type.stats.INT))) type.stats.INT=0;
+        if(isNaN(parseInt(type.stats.WIS))) type.stats.WIS=0;
+        if(isNaN(parseInt(type.stats.CHA))) type.stats.CHA=0;
         Types.update({_id: _id }, type);
         return _id;
     }

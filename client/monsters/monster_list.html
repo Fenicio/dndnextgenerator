@@ -11,7 +11,10 @@
   </div>
   <div class="list-group">
     {{#each monsters}}
-      <a class="list-group-item" href="{{pathFor 'monster' this}}">
+      <a class="list-group-item col-sm-4" href="{{pathFor 'monster' this}}">
+        <div class="row">
+          <img src="{{picture}}" class="img-thumbnail">
+        </div>
         {{> monsterJewel}}
       </a>
     {{/each}}

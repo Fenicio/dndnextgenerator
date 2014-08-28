@@ -103,10 +103,10 @@ generateMonsterName = function(subtypes) {
 
 generateChallengeRating = function(AC, HP) {
   var ac_cr = Math.max(0,(AC-12.5)/0.32);
-  var hp_cr = Math.max(0,Math.pow(HP/22.5, (1/0.8)));
+  var hp_cr = Math.max(0,Math.pow(HP/22.5, (1/0.95)));
   var cr = Math.max(0, (0.5*ac_cr+9.5*hp_cr)/10);
   var stimated_hp = (4.55 * Math.pow(cr,0.72)) * (0.31 * Math.log(cr) + 3.7)
-  console.log(cr, ac_cr, hp_cr, stimated_hp);
+  //console.log(cr, ac_cr, hp_cr, stimated_hp);
   return cr;
 };
 
@@ -140,27 +140,27 @@ generateDamage = function(monster) {
     long_distance = "720 feet";
   }
   var replacer = function(e, i) {
-    e.text=e.text.replace("{{min-damage}}", min_damage);
-    e.text=e.text.replace("{{avg-damage}}", avg_damage);
-    e.text=e.text.replace("{{hard-damage}}", hard_damage);
-    e.text=e.text.replace("{{solo-damage}}", solo_damage);
-    e.text=e.text.replace("{{str}}", Math.floor((monster.stats.STR-5)/2));
-    e.text=e.text.replace("{{dex}}", Math.floor((monster.stats.DEX-5)/2));
-    e.text=e.text.replace("{{con}}", Math.floor((monster.stats.CON-5)/2));
-    e.text=e.text.replace("{{int}}", Math.floor((monster.stats.INT-5)/2));
-    e.text=e.text.replace("{{wis}}", Math.floor((monster.stats.WIS-5)/2));
-    e.text=e.text.replace("{{cha}}", Math.floor((monster.stats.CHA-5)/2));
-    e.text=e.text.replace("{{str-save}}", 10+Math.floor((monster.stats.STR-5)/2));
-    e.text=e.text.replace("{{dex-save}}", 10+Math.floor((monster.stats.DEX-5)/2));
-    e.text=e.text.replace("{{con-save}}", 10+Math.floor((monster.stats.CON-5)/2));
-    e.text=e.text.replace("{{int-save}}", 10+Math.floor((monster.stats.INT-5)/2));
-    e.text=e.text.replace("{{wis-save}}", 10+Math.floor((monster.stats.WIS-5)/2));
-    e.text=e.text.replace("{{cha-save}}", 10+Math.floor((monster.stats.CHA-5)/2));
-    e.text=e.text.replace("{{melee-distance}}", melee_distance);
-    e.text=e.text.replace("{{lance-distance}}", lance_distance);
-    e.text=e.text.replace("{{see-distance}}", see_distance);
-    e.text=e.text.replace("{{throw-distance}}", throw_distance);
-    e.text=e.text.replace("{{long-distance}}", long_distance);
+    e.text=e.text.replace(/{{min-damage}}/g, min_damage);
+    e.text=e.text.replace(/{{avg-damage}}/g, avg_damage);
+    e.text=e.text.replace(/{{hard-damage}}/g, hard_damage);
+    e.text=e.text.replace(/{{solo-damage}}/g, solo_damage);
+    e.text=e.text.replace(/{{str}}/g, Math.floor((monster.stats.STR-5)/2));
+    e.text=e.text.replace(/{{dex}}/g, Math.floor((monster.stats.DEX-5)/2));
+    e.text=e.text.replace(/{{con}}/g, Math.floor((monster.stats.CON-5)/2));
+    e.text=e.text.replace(/{{int}}/g, Math.floor((monster.stats.INT-5)/2));
+    e.text=e.text.replace(/{{wis}}/g, Math.floor((monster.stats.WIS-5)/2));
+    e.text=e.text.replace(/{{cha}}/g, Math.floor((monster.stats.CHA-5)/2));
+    e.text=e.text.replace(/{{str-save}}/g, 10+Math.floor((monster.stats.STR-5)/2));
+    e.text=e.text.replace(/{{dex-save}}/g, 10+Math.floor((monster.stats.DEX-5)/2));
+    e.text=e.text.replace(/{{con-save}}/g, 10+Math.floor((monster.stats.CON-5)/2));
+    e.text=e.text.replace(/{{int-save}}/g, 10+Math.floor((monster.stats.INT-5)/2));
+    e.text=e.text.replace(/{{wis-save}}/g, 10+Math.floor((monster.stats.WIS-5)/2));
+    e.text=e.text.replace(/{{cha-save}}/g, 10+Math.floor((monster.stats.CHA-5)/2));
+    e.text=e.text.replace(/{{melee-distance}}/g, melee_distance);
+    e.text=e.text.replace(/{{lance-distance}}/g, lance_distance);
+    e.text=e.text.replace(/{{see-distance}}/g, see_distance);
+    e.text=e.text.replace(/{{throw-distance}}/g, throw_distance);
+    e.text=e.text.replace(/{{long-distance}}/g, long_distance);
     if(e.hit_stat) {
       var bonus = parseInt(monster.hit_bonus);
       if(e.hit_bonus) bonus += parseInt(e.hit_bonus);
