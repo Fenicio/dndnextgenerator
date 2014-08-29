@@ -38,7 +38,7 @@ generateRandomMonster = function() {
         monster.traits.push(e.traits.randomPop());
       }
       Object.keys(e.stats).map(function(el, i) {
-        monster.stats[el]+=e.stats[el];
+        monster.stats[el]+= isNaN(e.stats[el]) ? 0 : e.stats[el];
         if(monster.stats[el]<=0) monster.stats[el]=1;
         if(monster.stats[el]>30) monster.stats[el]=30;
       });

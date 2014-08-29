@@ -7,7 +7,7 @@ Router.configure({
 Router.map(function() {
     this.route('hello', { 
       path: '/', 
-      template: 'monster_list', //TODO make a landing page
+      template: 'hello',
       waitOn: function () {
         return Meteor.subscribe('creatures');
       } 
@@ -30,7 +30,7 @@ Router.map(function() {
       data: function() {
         return Creatures.findOne({_id: this.params._id });
       }, waitOn: function () {
-        return Meteor.subscribe('creatures');
+        return Meteor.subscribe('creature', this.params._id);
       }
     });
     this.route('type_list', { 
@@ -45,7 +45,7 @@ Router.map(function() {
         return Types.findOne({ _id: this.params._id });
       },
       waitOn: function () {
-        return Meteor.subscribe('types');
+        return Meteor.subscribe('type', this.params._id);
       }
     });
     this.route('type_edit', {
@@ -54,7 +54,7 @@ Router.map(function() {
         return Types.findOne({ _id: this.params._id });
       }, 
       waitOn: function() {
-        return Meteor.subscribe('types').ready; //TODO single type
+        return Meteor.subscribe('type', this.params._id); //TODO single type
       }
     });
     this.route('new_type', {

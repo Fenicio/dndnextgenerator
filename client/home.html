@@ -11,8 +11,15 @@
 </template>
 
 <template name="hello">
-  These are the latest additions!
+  <a href="{{pathFor 'new_monster'}}" class="btn btn-lg btn-danger btn-block">Create a new monster!</a>
+  <div style="height:5px;"></div>
+  <div class="page-title"><h2 class="page-header">Or peek at some bizarre beasts</h2></div>
   {{#each creatures}}
-    {{> monsterJewel}}
+    <a class="list-group-item col-sm-4" href="{{pathFor 'monster' this}}">
+        <div class="row">
+          <img src="{{picture}}" class="img-thumbnail">
+        </div>
+        {{> monsterJewel}}
+      </a>
   {{/each}}
 </template>

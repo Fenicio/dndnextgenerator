@@ -12,4 +12,6 @@ accounts-password
 accounts-twitter
 cmather:iron-router@0.8.2
 mizzao:bootstrap-3
+ian:accounts-ui-bootstrap-3
+miguelvalverde:font-awesome-4.1.0
 
