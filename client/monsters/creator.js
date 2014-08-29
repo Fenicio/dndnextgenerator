@@ -109,9 +109,11 @@ generateChallengeRating = function(AC, HP) {
 };
 
 generateDamage = function(monster) {
-  var min_damage = number_to_dice(monster.challenge_rating*3);
-  var avg_damage = number_to_dice(monster.challenge_rating*5);
-  var hard_damage = number_to_dice(monster.challenge_rating*8);
+  //TODO multiattack divides damage dice between attacks, (not solo damage, that thing is reserved for full turn actions like fire breathing or exploding or...)
+  var multiattack = 1;
+  var min_damage = number_to_dice(monster.challenge_rating*3/multiattack);
+  var avg_damage = number_to_dice(monster.challenge_rating*5/multiattack);
+  var hard_damage = number_to_dice(monster.challenge_rating*8/multiattack);
   var solo_damage = number_to_dice(monster.challenge_rating*12);
   var melee_distance = "5 feet";
   var lance_distance = "10 feet";
@@ -148,12 +150,12 @@ generateDamage = function(monster) {
     e.text=e.text.replace(/{{int}}/g, Math.floor((monster.stats.INT-5)/2));
     e.text=e.text.replace(/{{wis}}/g, Math.floor((monster.stats.WIS-5)/2));
     e.text=e.text.replace(/{{cha}}/g, Math.floor((monster.stats.CHA-5)/2));
-    e.text=e.text.replace(/{{str-save}}/g, 10+Math.floor((monster.stats.STR-5)/2));
-    e.text=e.text.replace(/{{dex-save}}/g, 10+Math.floor((monster.stats.DEX-5)/2));
-    e.text=e.text.replace(/{{con-save}}/g, 10+Math.floor((monster.stats.CON-5)/2));
-    e.text=e.text.replace(/{{int-save}}/g, 10+Math.floor((monster.stats.INT-5)/2));
-    e.text=e.text.replace(/{{wis-save}}/g, 10+Math.floor((monster.stats.WIS-5)/2));
-    e.text=e.text.replace(/{{cha-save}}/g, 10+Math.floor((monster.stats.CHA-5)/2));
+    e.text=e.text.replace(/{{str-save}}/g, 10+monster.hit_bonus+Math.floor((monster.stats.STR-5)/2));
+    e.text=e.text.replace(/{{dex-save}}/g, 10+monster.hit_bonus+Math.floor((monster.stats.DEX-5)/2));
+    e.text=e.text.replace(/{{con-save}}/g, 10+monster.hit_bonus+Math.floor((monster.stats.CON-5)/2));
+    e.text=e.text.replace(/{{int-save}}/g, 10+monster.hit_bonus+Math.floor((monster.stats.INT-5)/2));
+    e.text=e.text.replace(/{{wis-save}}/g, 10+monster.hit_bonus+Math.floor((monster.stats.WIS-5)/2));
+    e.text=e.text.replace(/{{cha-save}}/g, 10+monster.hit_bonus+Math.floor((monster.stats.CHA-5)/2));
     e.text=e.text.replace(/{{melee-distance}}/g, melee_distance);
     e.text=e.text.replace(/{{lance-distance}}/g, lance_distance);
     e.text=e.text.replace(/{{see-distance}}/g, see_distance);
