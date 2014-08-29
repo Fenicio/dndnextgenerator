@@ -102,19 +102,17 @@ generateMonsterName = function(subtypes) {
 };
 
 generateChallengeRating = function(AC, HP) {
-  var ac_cr = Math.max(0,(AC-12.5)/0.32);
-  var hp_cr = Math.max(0,Math.pow(HP/22.5, (1/0.95)));
+  var ac_cr = Math.max(0,(AC-12.5));
+  var hp_cr = Math.max(0,HP/25);
   var cr = Math.max(0, (0.5*ac_cr+9.5*hp_cr)/10);
-  var stimated_hp = (4.55 * Math.pow(cr,0.72)) * (0.31 * Math.log(cr) + 3.7)
-  //console.log(cr, ac_cr, hp_cr, stimated_hp);
   return cr;
 };
 
 generateDamage = function(monster) {
-  var min_damage = number_to_dice(monster.challenge_rating*1.5);
-  var avg_damage = number_to_dice(monster.challenge_rating*2.5);
-  var hard_damage = number_to_dice(monster.challenge_rating*3.5);
-  var solo_damage = number_to_dice(monster.challenge_rating*5);
+  var min_damage = number_to_dice(monster.challenge_rating*3);
+  var avg_damage = number_to_dice(monster.challenge_rating*5);
+  var hard_damage = number_to_dice(monster.challenge_rating*8);
+  var solo_damage = number_to_dice(monster.challenge_rating*12);
   var melee_distance = "5 feet";
   var lance_distance = "10 feet";
   var see_distance = "30 feet";
