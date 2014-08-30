@@ -53,9 +53,9 @@ generateRandomMonster = function() {
       }
       Object.keys(e.skills).map(function(el, i) {
         if(monster.skills[el]) {
-          monster.skills[el]+=e.skills[el];
+          monster.skills[el]+= isNaN(e.skills[el]) ? 0 : parseInt(e.skills[el]);
         } else {
-          monster.skills[el]=e.skills[el];
+          monster.skills[el]=isNaN(e.skills[el]) ? 0 :parseInt(e.skills[el]);
         }
       });
     });
