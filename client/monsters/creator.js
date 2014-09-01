@@ -12,7 +12,7 @@ generateRandomMonster = function() {
       name: "Standard Attack",
       action: "Standard Action",
       hit_bonus: 0,
-      hit_stat: "str",
+      hit_stat: "STR",
       text: "Does {{avg-damage}}+{{str}} damage"
     }];
     monster.traits = [];
@@ -165,12 +165,12 @@ generateDamage = function(monster) {
       var bonus = parseInt(monster.hit_bonus);
       if(e.hit_bonus) bonus += parseInt(e.hit_bonus);
       if(e.hit_stat) {
-        if(e.hit_stat=="str") bonus+=parseInt(Math.floor((monster.stats.STR-5)/2));
-        if(e.hit_stat=="dex") bonus+=parseInt(Math.floor((monster.stats.DEX-5)/2));
-        if(e.hit_stat=="con") bonus+=parseInt(Math.floor((monster.stats.CON-5)/2));
-        if(e.hit_stat=="int") bonus+=parseInt(Math.floor((monster.stats.INT-5)/2));
-        if(e.hit_stat=="wis") bonus+=parseInt(Math.floor((monster.stats.WIS-5)/2));
-        if(e.hit_stat=="cha") bonus+=parseInt(Math.floor((monster.stats.CHA-5)/2));
+        if(e.hit_stat=="STR") bonus+=parseInt(Math.floor((monster.stats.STR-5)/2));
+        if(e.hit_stat=="DEX") bonus+=parseInt(Math.floor((monster.stats.DEX-5)/2));
+        if(e.hit_stat=="CON") bonus+=parseInt(Math.floor((monster.stats.CON-5)/2));
+        if(e.hit_stat=="INT") bonus+=parseInt(Math.floor((monster.stats.INT-5)/2));
+        if(e.hit_stat=="WIS") bonus+=parseInt(Math.floor((monster.stats.WIS-5)/2));
+        if(e.hit_stat=="CHA") bonus+=parseInt(Math.floor((monster.stats.CHA-5)/2));
       }
       if(bonus>=0) {
         e.text = "+ "+bonus+": "+e.text;
