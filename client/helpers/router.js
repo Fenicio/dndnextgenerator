@@ -1,7 +1,7 @@
 Router.configure({
-  layoutTemplate: 'layout',
   notFoundTemplate: 'notFound',
-  loadingTemplate: 'loading'
+  loadingTemplate: 'loading',
+  layoutTemplate: 'layout',
 });
 
 Router.map(function() {
@@ -36,6 +36,7 @@ Router.map(function() {
     this.route('type_list', { 
       path: '/types',
       waitOn: function () {
+        console.log(Router);
         return Meteor.subscribe('types');
       }
     });
