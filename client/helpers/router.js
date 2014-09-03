@@ -4,6 +4,7 @@ Router.configure({
   layoutTemplate: 'layout',
 });
 
+Router.onBeforeAction('loading');
 Router.map(function() {
     this.route('hello', { 
       path: '/', 
