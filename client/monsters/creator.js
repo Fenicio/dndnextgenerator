@@ -2,7 +2,7 @@ generateRandomMonster = function() {
     var subtypes = [];
     var monster = {};
     
-    subtypes = getRandomFromCollection(Types, {type: "sub"}, [1,1,1,2,2,3].random());
+    subtypes = getRandomFromCollection(Types, {type: "sub"}, Math.floor(6-Math.pow(Math.rand(1, 300), 0.25)));
     monster.size = getRandomFromCollection(Types,{type: "size"},1).pop();
     subtypes.push(monster.size);
     monster.type = getRandomFromCollection(Types,{type: "main"},1).pop();
@@ -75,10 +75,18 @@ generateRandomMonster = function() {
     monster.hitdice = monster.n_hitdice+"d"+monster.size.hitDice+" + "+(monster.n_hitdice*((monster.stats.CON/2)-5));
     monster.hitpoints = Math.rand(Math.max(monster.n_hitdice*(1+(monster.stats.CON/2)-5),1), Math.max(monster.n_hitdice*(monster.size.hitDice+(monster.stats.CON/2)-5),1));
     monster.standard_hitpoints = Math.max(monster.n_hitdice, Math.floor(monster.n_hitdice*((monster.size.hitDice/2+0.5)+(monster.stats.CON/2)-5)));
-    monster.armor_class = Math.floor(10+monster.n_hitdice/4+monster.natural_armor+monster.dex_armor+monster.size_armor+monster.equipped_armor);
+    monster.armor_class = Math.floor(10+monster.n_hitdice/5+monster.natural_armor+monster.dex_armor+monster.size_armor+monster.equipped_armor);
     monster.challenge_rating = generateChallengeRating(monster.armor_class, monster.hitpoints);
     monster.experience_points = Math.floor(-0.3553*Math.pow(monster.challenge_rating, 3) + 60.485*Math.pow(monster.challenge_rating,2) + 25.5534*monster.challenge_rating + 5.52);
     monster.hit_bonus = Math.floor(monster.challenge_rating/3)+2;
+    monster.multiattack=1;
+    if(monster.stats.DEX>14) {
+      monster.multiattack=Math.ceil(monster.challenge_rating/6) + 1;
+    }
+    monster.traits.push({
+      name: "Multiattack",
+      text: "This creature can do "+monster.multiattack+" attacks in a single round."
+    })
     generateDamage(monster);
     monster.subtypes=subtypes;
     return monster;
@@ -104,16 +112,15 @@ generateMonsterName = function(subtypes) {
 generateChallengeRating = function(AC, HP) {
   var ac_cr = Math.max(0,(AC-12.5));
   var hp_cr = Math.max(0,HP/25);
-  var cr = Math.max(0, (0.5*ac_cr+9.5*hp_cr)/10);
-  return cr;
+  var cr = Math.max(0, (1.5*ac_cr+8.5*hp_cr)/10);
+  return Math.round(cr*100)/100;
 };
 
 generateDamage = function(monster) {
   //TODO multiattack divides damage dice between attacks, (not solo damage, that thing is reserved for full turn actions like fire breathing or exploding or...)
-  var multiattack = 1;
-  var min_damage = number_to_dice(monster.challenge_rating*3/multiattack);
-  var avg_damage = number_to_dice(monster.challenge_rating*5/multiattack);
-  var hard_damage = number_to_dice(monster.challenge_rating*8/multiattack);
+  var min_damage = number_to_dice(monster.challenge_rating*3/monster.multiattack);
+  var avg_damage = number_to_dice(monster.challenge_rating*5/monster.multiattack);
+  var hard_damage = number_to_dice(monster.challenge_rating*8/monster.multiattack);
   var solo_damage = number_to_dice(monster.challenge_rating*12);
   var melee_distance = "5 feet";
   var lance_distance = "10 feet";

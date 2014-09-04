@@ -335,11 +335,6 @@ Types.insert({
       name: "Shapechanger",
       action: "Standard Action",
       text: "This creature can polymorph into a creature or inanimate object of its size it has seen, It's equipment it's not transformed"
-    },
-    {
-      name: "Multiattack",
-      action: "Standard Action",
-      text: "This creature makes two melee attacks"
     }
     ],
     traits: [
