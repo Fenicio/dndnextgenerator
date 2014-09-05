@@ -23,3 +23,31 @@ Lvl, Easy, Medium, Hard
 19  350  1,100  2,200  3,300
 20  350  1,100  2,200  3,300
  **/
+function generateMonsterGroup(minCR, maxCR, xpBudget, tags) {
+  var subset;
+  var xp = 0; 
+  var encounter = [];
+
+  if(tags) {
+    subset = getRandomFromCollection(Creatures, 
+      { $and: [{challenge_rating: {$gt: minCR}}, 
+        {challenge_rating: {$lt: maxCR}}, 
+        {subtypes: { $elemMatch: {name: {$in: tags}}}}]}, 3);
+  } else {
+    subset = getRandomFromCollection(Creatures, 
+      { $and: [{challenge_rating: {$gt: minCR}}, 
+        {challenge_rating: {$lt: maxCR}}, 
+        {subtypes: { $elemMatch: {name: {$in: tags}}}}]}, 3);
+  }
+
+  while(xp<xpBudget) { 
+    var c = subset.random(); 
+    xp+=c.experience_points; 
+    encounter.push(c); 
+  }
+  
+  return {
+    xp: xp,
+    monsters: encounter
+  };
+};
