@@ -82,11 +82,11 @@ generateRandomMonster = function() {
     monster.multiattack=1;
     if(monster.stats.DEX>14) {
       monster.multiattack=Math.ceil(monster.challenge_rating/6) + 1;
+      monster.traits.push({
+        name: "Multiattack",
+        text: "This creature can do "+monster.multiattack+" attacks in a single round."
+      });
     }
-    monster.traits.push({
-      name: "Multiattack",
-      text: "This creature can do "+monster.multiattack+" attacks in a single round."
-    })
     generateDamage(monster);
     monster.subtypes=subtypes;
     return monster;

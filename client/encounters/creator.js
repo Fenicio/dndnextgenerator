@@ -23,6 +23,50 @@ Lvl, Easy, Medium, Hard
 19  350  1,100  2,200  3,300
 20  350  1,100  2,200  3,300
  **/
+//There's another way to do this, but I'm rolling with this for now
+xpTable = {
+  1: {
+    easy: 20,
+    medium: 50,
+    hard: 100,
+    solo: 150
+  },
+  2: {
+    easy: 20,
+    medium: 50,
+    hard: 100,
+    solo: 150
+  },
+  3: {
+    easy: 20,
+    medium: 50,
+    hard: 100,
+    solo: 150
+  },
+  4: {
+    easy: 20,
+    medium: 50,
+    hard: 100,
+    solo: 150
+  },
+  5: {
+    easy: 20,
+    medium: 50,
+    hard: 100,
+    solo: 150
+  },
+  6: {
+    easy: 20,
+    medium: 50,
+    hard: 100,
+    solo: 150
+  }
+};
+ 
+function generatePatrol(CR, tags) {
+  return generateMonsterGroup(CR-2, CR, xpTable[CR]['easy'], tags);
+};
+ 
 function generateMonsterGroup(minCR, maxCR, xpBudget, tags) {
   var subset;
   var xp = 0; 
@@ -30,14 +74,13 @@ function generateMonsterGroup(minCR, maxCR, xpBudget, tags) {
 
   if(tags) {
     subset = getRandomFromCollection(Creatures, 
-      { $and: [{challenge_rating: {$gt: minCR}}, 
-        {challenge_rating: {$lt: maxCR}}, 
+      { $and: [{challenge_rating: {$gte: minCR}}, 
+        {challenge_rating: {$lte: maxCR}}, 
         {subtypes: { $elemMatch: {name: {$in: tags}}}}]}, 3);
   } else {
     subset = getRandomFromCollection(Creatures, 
-      { $and: [{challenge_rating: {$gt: minCR}}, 
-        {challenge_rating: {$lt: maxCR}}, 
-        {subtypes: { $elemMatch: {name: {$in: tags}}}}]}, 3);
+      { $and: [{challenge_rating: {$gte: minCR}}, 
+        {challenge_rating: {$lte: maxCR}}]}, 3);
   }
 
   while(xp<xpBudget) { 
@@ -51,3 +94,6 @@ function generateMonsterGroup(minCR, maxCR, xpBudget, tags) {
     monsters: encounter
   };
 };
+
+//sample: generatePatrol(1, undefined);
+//Another sample: generatePatrol(1, ['skulking']);
