@@ -63,6 +63,13 @@ Router.map(function() {
       path: '/new/type',
       template: 'type_edit'
     });
+    this.route('new_encounter', {
+      path: '/new/encounter',
+      template: 'new_encounter',
+      waitOn: function() {
+        return Meteor.subscribe('creatures');
+      }
+    });
     this.route('documentation', {
       path: '/documentation'
     });

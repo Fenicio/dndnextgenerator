@@ -1,3 +1,24 @@
 <template name="encounter">
+  <div class="encounter-header">
+    <strong>
+      {{name}}
+    </strong>
+    <small>
+      XP: {{ experience_points }}
+    </small>
+  </div>
+  <div class="encounter-body">
+    <h3>Monsters</h3>
+    {{#each monsters}}
+      {{> monsterJewel}}
+    {{/each}}
+    <h3>Traps</h3>
     
+    <h3>Treasure</h3>
+    {{#with treasure}}
+      {{> treasure}}
+    {{/with}}
+    <h3>Description</h3>
+    {{ description }}
+  </div>
 </template>

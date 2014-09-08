@@ -24,6 +24,8 @@ Must show validation errors.
 Must make sure size types are not modificable.
 Must show some monsters.
 An encounter is a bunch of creatures who share a common trait and fill a Challenge Rating, a encounter can also be based in a location.
+An element is a building or furniture that appears on dungeons, it can hold treasure and/or host a puzzle/trap. 
+  Note: Maybe they shouldn't be a collection, maybe the "dungeon theme" should be a collection containing elements, jurmm..
 A trap is something that is found in dungeons and eats tasty adventurers.
 A dungeon is a location that holds encounters, doors, puzzles and traps.
 A campaign is a bunch of dungeons, encounters and locations sew together under the pretense of "plot". Plot is deprecated in dnd.

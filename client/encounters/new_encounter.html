@@ -1,0 +1,9 @@
+<template name="new_encounter">
+    <div class="row">
+        <input type="button" value="Roll an Encounter" name="generateEncounter" class="btn btn-success btn-lg btn-block" />
+    </div>
+    <div style="height:15px;"></div>
+    {{#with currentEncounter}}
+        {{> encounter}}
+    {{/with}}
+</template>
