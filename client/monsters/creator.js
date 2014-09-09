@@ -78,7 +78,7 @@ generateRandomMonster = function() {
     monster.armor_class = Math.floor(10+monster.n_hitdice/5+monster.natural_armor+monster.dex_armor+monster.size_armor+monster.equipped_armor);
     monster.challenge_rating = generateChallengeRating(monster.armor_class, monster.hitpoints);
     monster.experience_points = Math.floor(-0.3553*Math.pow(monster.challenge_rating, 3) + 60.485*Math.pow(monster.challenge_rating,2) + 25.5534*monster.challenge_rating + 5.52);
-    monster.hit_bonus = Math.floor(monster.challenge_rating/3)+2;
+    monster.hit_bonus = Math.floor(monster.challenge_rating/4)+2;
     monster.multiattack=1;
     if(monster.stats.DEX>14) {
       monster.multiattack=Math.ceil(monster.challenge_rating/6) + 1;
@@ -87,6 +87,7 @@ generateRandomMonster = function() {
         text: "This creature can do "+monster.multiattack+" attacks in a single round."
       });
     }
+    
     generateDamage(monster);
     monster.subtypes=subtypes;
     return monster;

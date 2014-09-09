@@ -1,4 +1,4 @@
-Template.encounter.xp = function() {
+Template.encounter.experience_points = function() {
     return this.monsters.xp;
 };
 

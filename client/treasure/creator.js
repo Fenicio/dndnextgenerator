@@ -1,4 +1,4 @@
-function generateTreasure(CR) {
+generateTreasure = function(CR) {
     return {
         name: "TODO TREASURE"
     };

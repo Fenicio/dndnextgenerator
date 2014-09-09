@@ -9,15 +9,23 @@
   </div>
   <div class="encounter-body">
     <h3>Monsters</h3>
+    <ul class="list-unstyled">
     {{#each monsters}}
-      {{> monsterJewel}}
+      <li>
+        <a href="{{pathFor 'monster' this}}">
+          {{> monsterJewel}}
+        </a>
+      </li>
     {{/each}}
+    </ul>
     <h3>Traps</h3>
     
     <h3>Treasure</h3>
+    <ul class="list-unstyled">
     {{#with treasure}}
       {{> treasure}}
     {{/with}}
+    </ul>
     <h3>Description</h3>
     {{ description }}
   </div>
