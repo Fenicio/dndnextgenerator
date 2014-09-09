@@ -8,7 +8,12 @@ Template.new_encounter.currentEncounter = function() {
 };
 
 Template.new_encounter.events({
-  'click input[name="generateEncounter"]': function () {
+  'click input[name="generateEncounter"]': function (e) {
+    e.preventDefault();
     Session.set("currentEncounter", generateRandomEncounter());
+  },
+  'click input[name="generateLeveledEncounter"]': function(e) {
+    e.preventDefault();
+    Session.set("currentEncounter", generateLeveledEncounter(parseInt($('[name="targetLevel"]').val())));
   }
 });

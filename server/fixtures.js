@@ -72,7 +72,6 @@ Types.insert({
     suffix: ["gre", "oll", "ant"],
     stats: {
       "STR": +4,
-      "DEX": -4,
       "CON": +4
     },
     size_armor: +1,
@@ -94,7 +93,6 @@ Types.insert({
     suffix: ["tan", "tanic", "ssal"],
     stats: {
       "STR": +6,
-      "DEX": -6,
       "CON": +6
     },
     size_armor: +2,
@@ -116,7 +114,6 @@ Types.insert({
     suffix: ["asque"],
     stats: {
       "STR": +8,
-      "DEX": -8,
       "CON": +8
     },
     size_armor: +3,

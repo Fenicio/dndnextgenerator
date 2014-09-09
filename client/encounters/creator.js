@@ -175,10 +175,22 @@ generateRandomEncounter = function() {
   else p = generatePatrol(cr, undefined);
   console.log(p);
   return p;
-}
+};
+
+generateLeveledEncounter = function(CR) {
+  var r = Math.rand(1,6);
+  var cr = Math.rand(1,20);
+  if(!isNaN(CR) && CR > 0 && CR <21) {
+    cr = parseInt(CR);
+  }
+  if(r==2) p = generateMerchant(cr, undefined);
+  else if(r==3) p = generateSolo(cr, undefined);
+  else p = generatePatrol(cr, undefined);
+  console.log(p);
+  return p;
+};
 
 generatePatrol= function(CR, tags) {
-  console.log("generatePatrol(",CR,tags,")");
   return {
     name: "Patrol",
     monsters: generateMonsterGroup(CR/2, CR, xpBudgetCalc(CR,'medium'), tags),
@@ -222,8 +234,10 @@ generateMonsterGroup = function(minCR, maxCR, xpBudget, tags) {
 
   while(xp<xpBudget) { 
     var c = subset.random(); 
-    xp+=c.experience_points; 
-    encounter.push(c); 
+    if(c) {
+      xp+=c.experience_points; 
+      encounter.push(c);
+    }
   }
   
   return {

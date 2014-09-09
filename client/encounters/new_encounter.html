@@ -1,6 +1,21 @@
 <template name="new_encounter">
     <div class="row">
+      <div class="col-sm-6">
         <input type="button" value="Roll an Encounter" name="generateEncounter" class="btn btn-success btn-lg btn-block" />
+      </div>
+      <div class="col-sm-6">
+        <div class="col-xs-6 col-sm-6">
+            <label for="targetLevel" class="col-xs-6 col-sm-6">
+                Level
+            </label>
+            <div class="col-xs-6 col-sm-6">
+                <input type="number" class="form-control" name="targetLevel">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6">
+            <input type="button" name="generateLeveledEncounter" value="Roll an Encounter with this Level" class="btn btn-primary btn-lg btn-block" />
+        </div>
+      </div>
     </div>
     <div style="height:15px;"></div>
     {{#with currentEncounter}}
