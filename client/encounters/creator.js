@@ -221,7 +221,6 @@ generateMonsterGroup = function(minCR, maxCR, xpBudget, tags) {
   var xp = 0; 
   var encounter = [];
   
-  while(!subset || !subset.length) { //TODO debug this, its not working
     if(tags) {
       subset = getRandomFromCollection(Creatures, 
         { $and: [{challenge_rating: {$gte: minCR}}, 
@@ -232,7 +231,7 @@ generateMonsterGroup = function(minCR, maxCR, xpBudget, tags) {
         { $and: [{challenge_rating: {$gte: minCR}}, 
           {challenge_rating: {$lte: maxCR}}]}, 3);
     }
-  }
+  
 
   while(xp<xpBudget) { 
     var c = subset.random(); 

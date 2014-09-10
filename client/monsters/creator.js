@@ -62,12 +62,12 @@ generateRandomMonster = function() {
     monster.dex_armor=Math.floor((monster.stats.DEX/2)-5);
     if(monster.canEquip && monster.canEquip===1) {
       if(monster.stats.DEX>=18) {
-        monster.equipped_armor=Math.floor(2*monster.size.hitDice)/6;
+        monster.equipped_armor=Math.min(Math.floor(2*monster.size.hitDice)/6, 4);
       } else if(monster.stats.DEX >= 14) {
-        monster.equipped_armor=Math.floor(4*monster.size.hitDice)/6;
+        monster.equipped_armor=Math.min(Math.floor(4*monster.size.hitDice)/6, 6);
         monster.dex_armor=Math.min(monster.dex_armor,2);
       } else {
-        monster.equipped_armor=Math.floor(6*monster.size.hitDice)/6;
+        monster.equipped_armor=Math.min(Math.floor(6*monster.size.hitDice)/6, 11);
         monster.dex_armor=Math.min(monster.dex_armor,0);;
       }
     }
