@@ -118,7 +118,6 @@ generateChallengeRating = function(AC, HP) {
 };
 
 generateDamage = function(monster) {
-  //TODO multiattack divides damage dice between attacks, (not solo damage, that thing is reserved for full turn actions like fire breathing or exploding or...)
   var min_damage = number_to_dice(monster.challenge_rating*3/monster.multiattack);
   var avg_damage = number_to_dice(monster.challenge_rating*5/monster.multiattack);
   var hard_damage = number_to_dice(monster.challenge_rating*8/monster.multiattack);
