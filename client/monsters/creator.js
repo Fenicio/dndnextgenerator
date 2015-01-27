@@ -111,8 +111,8 @@ generateMonsterName = function(subtypes) {
 };
 
 generateChallengeRating = function(AC, HP) {
-  var ac_cr = Math.max(0,(AC-12.5));
-  var hp_cr = Math.max(0,HP/25);
+  var ac_cr = Math.max(0,(AC/0.375-12.625));
+  var hp_cr = Math.max(0,HP/14.8 - 65);
   var cr = Math.max(0, (1.5*ac_cr+8.5*hp_cr)/10);
   return Math.round(cr*100)/100;
 };
